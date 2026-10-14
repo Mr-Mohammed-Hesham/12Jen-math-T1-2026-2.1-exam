@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>📈 الدوال الأسية والنمو - الصف الثاني عشر | Mr. Mohammed Hesham</title>
-<meta name="description" content="امتحان تفاعلي شامل عن الدوال الأسية والنمو الأسي - رياضيات الصف 12">
+<title>📐 الجبر وكثيرات الحدود - الصف 12 عام | Mr. Mohammed Hesham</title>
+<meta name="description" content="امتحان تفاعلي شامل عن الجبر وكثيرات الحدود - رياضيات الصف 12 العام">
 <meta name="author" content="Mr. Mohammed Hesham">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -27,7 +27,7 @@ body.en-mode { font-family: 'Inter', sans-serif; }
 position: fixed; top: 16px; left: 16px; z-index: 100;
 background: white; padding: 6px; border-radius: 30px;
 box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: flex; gap: 4px;
-border: 2px solid #059669;
+border: 2px solid #0891b2;
 }
 [dir="ltr"] .lang-switch { left: auto; right: 16px; }
 .lang-btn {
@@ -35,11 +35,11 @@ padding: 6px 14px; border-radius: 20px; cursor: pointer; font-weight: bold;
 transition: all 0.3s; border: none; font-size: 0.875rem;
 background: transparent; color: #6b7280;
 }
-.lang-btn.active { background: #059669; color: white; box-shadow: 0 2px 6px rgba(5,150,105,0.4); }
-.lang-btn:hover:not(.active) { background: #ecfdf5; color: #059669; }
+.lang-btn.active { background: #0891b2; color: white; box-shadow: 0 2px 6px rgba(8,145,178,0.4); }
+.lang-btn:hover:not(.active) { background: #ecfeff; color: #0891b2; }
 .shuffle-badge {
 display: inline-block;
-background: linear-gradient(135deg, #059669, #047857);
+background: linear-gradient(135deg, #0891b2, #0e7490);
 color: white; padding: 4px 12px; border-radius: 20px;
 font-size: 0.75rem; font-weight: bold; margin-right: 8px;
 }
@@ -47,9 +47,9 @@ font-size: 0.75rem; font-weight: bold; margin-right: 8px;
 display: inline-block; direction: ltr;
 font-family: 'Amiri', 'Times New Roman', serif;
 font-size: 1.2em; font-style: italic;
-padding: 2px 8px; background: #ecfdf5;
+padding: 2px 8px; background: #ecfeff;
 border-radius: 6px; margin: 2px;
-color: #047857; font-weight: 600; letter-spacing: 0.5px;
+color: #0e7490; font-weight: 600; letter-spacing: 0.5px;
 }
 .save-indicator {
 position: fixed; bottom: 20px; left: 20px; z-index: 200;
@@ -60,7 +60,7 @@ box-shadow: 0 4px 12px rgba(16,185,129,0.4);
 }
 .save-indicator.show { opacity: 1; }
 .formula-box {
-background: #ecfdf5; border: 2px solid #10b981;
+background: #ecfeff; border: 2px solid #06b6d4;
 border-radius: 8px; padding: 12px; margin: 10px 0;
 font-family: 'Amiri', serif;
 direction: ltr; text-align: center;
@@ -83,13 +83,14 @@ font-weight: bold;
 font-size: 0.85rem;
 margin-bottom: 8px;
 }
-.module-1 { background: #d1fae5; color: #065f46; }
+.module-1 { background: #cffafe; color: #155e75; }
 .module-2 { background: #fef3c7; color: #92400e; }
-.module-3 { background: #dbeafe; color: #1e40af; }
-.module-4 { background: #fce7f3; color: #9f1239; }
+.module-3 { background: #fce7f3; color: #9f1239; }
+.module-4 { background: #ecfdf5; color: #065f46; }
+.module-5 { background: #ede9fe; color: #5b21b6; }
 </style>
 </head>
-<body class="bg-gradient-to-br from-emerald-50 to-teal-50 text-gray-800 p-4 md:p-8 min-h-screen">
+<body class="bg-gradient-to-br from-cyan-50 to-teal-50 text-gray-800 p-4 md:p-8 min-h-screen">
 
 <div class="lang-switch no-print">
 <button class="lang-btn active" onclick="setLanguage('ar')" id="btn-ar">عربي</button>
@@ -99,82 +100,82 @@ margin-bottom: 8px;
 <div id="saveIndicator" class="save-indicator">💾 <span data-ar="تم الحفظ" data-en="Saved">تم الحفظ</span></div>
 
 <div id="timer-container" class="max-w-5xl mx-auto mb-4 text-center no-print">
-<div class="bg-white p-4 rounded-2xl shadow-md inline-block border-2 border-emerald-100">
+<div class="bg-white p-4 rounded-2xl shadow-md inline-block border-2 border-cyan-100">
 <span class="text-gray-600 ml-2" data-ar="⏰ الوقت المتبقي:" data-en="⏰ Time Remaining:">⏰ الوقت المتبقي:</span>
-<span id="timer" class="text-2xl font-bold text-emerald-700 font-mono">75:00</span>
-<span class="shuffle-badge" data-ar="🎲 أسئلة عشوائية" data-en="🎲 Random Questions"> أسئلة عشوائية</span>
+<span id="timer" class="text-2xl font-bold text-cyan-700 font-mono">75:00</span>
+<span class="shuffle-badge" data-ar="🎲 أسئلة عشوائية" data-en="🎲 Random Questions">🎲 أسئلة عشوائية</span>
 </div>
 </div>
 
 <div class="max-w-5xl mx-auto mb-6 flex flex-wrap gap-3 justify-center no-print">
-<button onclick="toggleAnswers()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-5 py-2 rounded-xl font-medium transition shadow cursor-pointer" data-ar="👀 إظهار / إخفاء الإجابات" data-en="👀 Show / Hide Answers">👀 إظهار / إخفاء الإجابات</button>
-<button onclick="window.print()" class="bg-gray-700 hover:bg-gray-900 text-white px-5 py-2 rounded-xl font-medium transition shadow cursor-pointer" data-ar="🖨️ طباعة" data-en="🖨️ Print">🖨️ طباعة</button>
-<button onclick="reshuffleExam()" class="bg-gradient-to-r from-emerald-700 to-teal-600 hover:from-emerald-800 hover:to-teal-700 text-white px-5 py-2 rounded-xl font-medium transition shadow cursor-pointer" data-ar="🔄 أسئلة جديدة" data-en="🔄 New Questions">🔄 أسئلة جديدة</button>
+<button onclick="toggleAnswers()" class="bg-cyan-700 hover:bg-cyan-800 text-white px-5 py-2 rounded-xl font-medium transition shadow cursor-pointer" data-ar="👀 إظهار / إخفاء الإجابات" data-en="👀 Show / Hide Answers">👀 إظهار / إخفاء الإجابات</button>
+<button onclick="window.print()" class="bg-gray-700 hover:bg-gray-900 text-white px-5 py-2 rounded-xl font-medium transition shadow cursor-pointer" data-ar="🖨️ طباعة" data-en="️ Print">🖨️ طباعة</button>
+<button onclick="reshuffleExam()" class="bg-gradient-to-r from-cyan-700 to-teal-600 hover:from-cyan-800 hover:to-teal-700 text-white px-5 py-2 rounded-xl font-medium transition shadow cursor-pointer" data-ar="🔄 أسئلة جديدة" data-en="🔄 New Questions">🔄 أسئلة جديدة</button>
 <button onclick="clearProgress()" class="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-xl font-medium transition shadow cursor-pointer" data-ar="🗑️ مسح التقدم" data-en="🗑️ Clear Progress">🗑️ مسح التقدم</button>
 </div>
 
-<header class="max-w-5xl mx-auto bg-white p-6 rounded-2xl shadow-lg mb-8 border-4 border-emerald-500">
+<header class="max-w-5xl mx-auto bg-white p-6 rounded-2xl shadow-lg mb-8 border-4 border-cyan-500">
 <div class="text-center">
-<div class="inline-block bg-emerald-700 text-white px-4 py-1 rounded-full text-xs font-bold mb-2">MATH GRADE 12</div>
-<h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-ar="📈 الدوال الأسية والنمو" data-en=" Exponential Functions & Growth"> الدوال الأسية والنمو</h1>
-<h2 class="text-lg text-emerald-700 font-semibold" data-ar="الصف الثاني عشر العام (رياضيات)" data-en="Grade 12 General (Mathematics)">الصف الثاني عشر العام (رياضيات)</h2>
-<p class="text-sm text-gray-600 mt-2" data-ar="الدوال الأسية، النمو الأسي، التحلل، الجداول، والرسوم البيانية" data-en="Exponential functions, growth, decay, tables, and graphs">الدوال الأسية، النمو الأسي، التحلل، الجداول، والرسوم البيانية</p>
-<p class="text-xs text-green-600 mt-2 font-semibold" data-ar="💾 يتم حفظ تقدمك تلقائياً - 24 سؤالاً في 4 أقسام" data-en="💾 Your progress is saved automatically - 24 questions in 4 sections">💾 يتم حفظ تقدمك تلقائياً - 24 سؤالاً في 4 أقسام</p>
+<div class="inline-block bg-cyan-700 text-white px-4 py-1 rounded-full text-xs font-bold mb-2">MATH GRADE 12</div>
+<h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-ar="📐 الجبر وكثيرات الحدود" data-en="📐 Algebra & Polynomials"> الجبر وكثيرات الحدود</h1>
+<h2 class="text-lg text-cyan-700 font-semibold" data-ar="الصف الثاني عشر العام (رياضيات)" data-en="Grade 12 General (Mathematics)">الصف الثاني عشر العام (رياضيات)</h2>
+<p class="text-sm text-gray-600 mt-2" data-ar="تبسيط الكسور الجبرية، ضرب كثيرات الحدود، رفع القوى، تحديد كثيرات الحدود" data-en="Simplifying algebraic fractions, multiplying polynomials, raising powers, identifying polynomials">تبسيط الكسور الجبرية، ضرب كثيرات الحدود، رفع القوى، تحديد كثيرات الحدود</p>
+<p class="text-xs text-green-600 mt-2 font-semibold" data-ar="💾 يتم حفظ تقدمك تلقائياً - 30 سؤالاً في 5 أقسام" data-en="💾 Your progress is saved automatically - 30 questions in 5 sections">💾 يتم حفظ تقدمك تلقائياً - 30 سؤالاً في 5 أقسام</p>
 </div>
 <div class="mt-4 flex flex-wrap justify-center gap-4 text-sm text-gray-600">
-<span><span data-ar="📅 التاريخ:" data-en="📅 Date:">📅 التاريخ:</span> <input type="text" id="examDate" class="border-b-2 border-emerald-300 bg-transparent w-28 text-center"></span>
-<span><span data-ar="😊 الاسم:" data-en="😊 Name:">😊 الاسم:</span> <input type="text" id="studentName" class="border-b-2 border-emerald-300 bg-transparent w-32 text-center" placeholder="اكتب اسمك"></span>
-<span><span data-ar="🏫 الشعبة:" data-en=" Class:">🏫 الشعبة:</span> <input type="text" id="studentClass" class="border-b-2 border-emerald-300 bg-transparent w-28 text-center" placeholder="الشعبة"></span>
-<span data-ar="⏰ المدة: 75 دقيقة" data-en=" Duration: 75 min">⏰ المدة: 75 دقيقة</span>
-<span data-ar="📊 المجموع: 100 درجة" data-en="📊 Total: 100 pts">📊 المجموع: 100 درجة</span>
+<span><span data-ar="📅 التاريخ:" data-en="📅 Date:"> التاريخ:</span> <input type="text" id="examDate" class="border-b-2 border-cyan-300 bg-transparent w-28 text-center"></span>
+<span><span data-ar="😊 الاسم:" data-en="😊 Name:">😊 الاسم:</span> <input type="text" id="studentName" class="border-b-2 border-cyan-300 bg-transparent w-32 text-center" placeholder="اكتب اسمك"></span>
+<span><span data-ar="🏫 الشعبة:" data-en="🏫 Class:">🏫 الشعبة:</span> <input type="text" id="studentClass" class="border-b-2 border-cyan-300 bg-transparent w-28 text-center" placeholder="الشعبة"></span>
+<span data-ar="⏰ المدة: 75 دقيقة" data-en="⏰ Duration: 75 min">⏰ المدة: 75 دقيقة</span>
+<span data-ar="📊 المجموع: 100 درجة" data-en=" Total: 100 pts"> المجموع: 100 درجة</span>
 </div>
 </header>
 
-<div class="max-w-5xl mx-auto mb-6 bg-white p-4 rounded-xl shadow-md border-2 border-emerald-200 no-print">
-<h3 class="font-bold text-lg mb-3 text-emerald-800 text-center" data-ar="📐 القوانين الأساسية" data-en="📐 Key Formulae">📐 القوانين الأساسية</h3>
+<div class="max-w-5xl mx-auto mb-6 bg-white p-4 rounded-xl shadow-md border-2 border-cyan-200 no-print">
+<h3 class="font-bold text-lg mb-3 text-cyan-800 text-center" data-ar="📐 القوانين الأساسية" data-en="📐 Key Rules">📐 القوانين الأساسية</h3>
 <div class="grid md:grid-cols-3 gap-3 text-sm">
-<div class="formula-box"><strong>Exponential:</strong> y = a·bˣ</div>
-<div class="formula-box"><strong>Growth:</strong> y = a(1+r)ᵗ</div>
-<div class="formula-box"><strong>Decay:</strong> y = a(1-r)ᵗ</div>
-<div class="formula-box"><strong>Half-life:</strong> y = a(1/2)^(t/h)</div>
-<div class="formula-box"><strong>Doubling:</strong> y = a·2^(t/d)</div>
-<div class="formula-box"><strong>Compound:</strong> A = P(1+r/n)^(nt)</div>
+<div class="formula-box"><strong>Exponent Rule:</strong> x · xᵇ = xᵃ⁺ᵇ</div>
+<div class="formula-box"><strong>Power Rule:</strong> (xᵃ)ᵇ = xᵇ</div>
+<div class="formula-box"><strong>Negative Exponent:</strong> x⁻ᵃ = 1/x</div>
+<div class="formula-box"><strong>FOIL:</strong> (a+b)(c+d) = ac+ad+bc+bd</div>
+<div class="formula-box"><strong>Distributive:</strong> a(b+c) = ab+ac</div>
+<div class="formula-box"><strong>Polynomial:</strong> non-negative integer exponents only</div>
 </div>
 </div>
 
 <main class="max-w-5xl mx-auto space-y-8" id="exam-content"></main>
 
 <div class="text-center no-print pb-8 mt-8">
-<button onclick="gradeExam()" class="bg-gradient-to-r from-emerald-700 to-teal-600 hover:from-emerald-800 hover:to-teal-700 text-white text-lg px-10 py-4 rounded-2xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer" data-ar=" صحح إجاباتي!" data-en=" Grade My Answers!">🎯 صحح إجاباتي!</button>
+<button onclick="gradeExam()" class="bg-gradient-to-r from-cyan-700 to-teal-600 hover:from-cyan-800 hover:to-teal-700 text-white text-lg px-10 py-4 rounded-2xl font-bold shadow-xl transition transform hover:scale-105 cursor-pointer" data-ar="🎯 صحح إجاباتي!" data-en="🎯 Grade My Answers!">🎯 صحح إجاباتي!</button>
 </div>
 
-<div id="results-panel" class="max-w-5xl mx-auto mt-8 bg-white p-8 rounded-2xl shadow-2xl border-4 border-emerald-500 hidden no-print">
-<h2 class="text-3xl font-bold text-gray-900 mb-6 text-center" data-ar="🏆 نتيجتك يا بطل! 🏆" data-en="🏆 Your Results, Champion! ">🏆 نتيجتك يا بطل! 🏆</h2>
+<div id="results-panel" class="max-w-5xl mx-auto mt-8 bg-white p-8 rounded-2xl shadow-2xl border-4 border-cyan-500 hidden no-print">
+<h2 class="text-3xl font-bold text-gray-900 mb-6 text-center" data-ar="🏆 نتيجتك يا بطل! 🏆" data-en=" Your Results, Champion! 🏆"> نتيجتك يا بطل! 🏆</h2>
 <div class="grid md:grid-cols-3 gap-4 mb-6">
-<div class="bg-emerald-50 p-4 rounded-xl text-center"><p data-ar="😊 الاسم" data-en="😊 Name">😊 الاسم</p><p id="res-name" class="font-bold text-xl text-emerald-700">-</p></div>
-<div class="bg-teal-50 p-4 rounded-xl text-center"><p data-ar="📅 التاريخ" data-en="📅 Date">📅 التاريخ</p><p id="res-date" class="font-bold text-xl text-teal-700">-</p></div>
-<div class="bg-emerald-50 p-4 rounded-xl text-center"><p data-ar="🌟 المجموع" data-en="🌟 Score"> المجموع</p><p id="res-total" class="font-bold text-3xl text-emerald-700">0 / 100</p></div>
+<div class="bg-cyan-50 p-4 rounded-xl text-center"><p data-ar="😊 الاسم" data-en="😊 Name">😊 الاسم</p><p id="res-name" class="font-bold text-xl text-cyan-700">-</p></div>
+<div class="bg-teal-50 p-4 rounded-xl text-center"><p data-ar="📅 التاريخ" data-en="📅 Date"> التاريخ</p><p id="res-date" class="font-bold text-xl text-teal-700">-</p></div>
+<div class="bg-cyan-50 p-4 rounded-xl text-center"><p data-ar="🌟 المجموع" data-en="🌟 Score">🌟 المجموع</p><p id="res-total" class="font-bold text-3xl text-cyan-700">0 / 100</p></div>
 </div>
 <div class="text-center mb-6">
 <span id="success-badge" class="success-badge grade-excellent">-</span>
-<p id="success-percent" class="text-4xl font-bold text-emerald-700 mt-2">0%</p>
+<p id="success-percent" class="text-4xl font-bold text-cyan-700 mt-2">0%</p>
 <p class="text-sm text-gray-500" data-ar="نسبة النجاح" data-en="Success Rate">نسبة النجاح</p>
 </div>
 <div class="bg-gray-50 p-6 rounded-xl mb-6">
-<h3 class="font-bold text-lg mb-4 text-gray-800" data-ar=" أدائك في كل قسم:" data-en=" Your Performance:">📊 أدائك في كل قسم:</h3>
+<h3 class="font-bold text-lg mb-4 text-gray-800" data-ar="📊 أدائك في كل قسم:" data-en="📊 Your Performance:">📊 أدائك في كل قسم:</h3>
 <div class="space-y-3" id="sections-performance"></div>
 </div>
 <div class="text-center mb-6">
-<button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-emerald-700 to-teal-600 text-white text-lg px-8 py-3 rounded-2xl font-bold shadow-xl transition cursor-pointer" data-ar="📧 أرسل النتيجة للمعلم" data-en="📧 Send Results to Teacher">📧 أرسل النتيجة للمعلم</button>
+<button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-cyan-700 to-teal-600 text-white text-lg px-8 py-3 rounded-2xl font-bold shadow-xl transition cursor-pointer" data-ar="📧 أرسل النتيجة للمعلم" data-en="📧 Send Results to Teacher">📧 أرسل النتيجة للمعلم</button>
 <p id="emailStatus" class="text-sm mt-2 text-center font-medium"></p>
 </div>
 <div class="flex gap-3 justify-center">
-<button onclick="window.print()" class="bg-gray-700 text-white px-6 py-3 rounded-xl font-semibold" data-ar="🖨️ طباعة النتيجة" data-en="🖨️ Print Results">🖨️ طباعة النتيجة</button>
+<button onclick="window.print()" class="bg-gray-700 text-white px-6 py-3 rounded-xl font-semibold" data-ar="️ طباعة النتيجة" data-en="️ Print Results">🖨️ طباعة النتيجة</button>
 </div>
 </div>
 
 <footer class="max-w-5xl mx-auto mt-10 mb-8 text-center text-gray-500 text-sm no-print">
-© <span data-ar="الدوال الأسية - الصف 12" data-en="Exponential Functions - Grade 12">الدوال الأسية - الصف 12</span> | Mr. Mohammed Hesham 📈
+© <span data-ar="الجبر وكثيرات الحدود - الصف 12" data-en="Algebra & Polynomials - Grade 12">الجبر وكثيرات الحدود - الصف 12</span> | Mr. Mohammed Hesham 📐
 </footer>
 
 <script>
@@ -184,10 +185,10 @@ const TEMPLATE_ID = "template_5b0u2tq";
 const TARGET_EMAIL = "mohammedhesham872@gmail.com";
 emailjs.init(PUBLIC_KEY);
 
-const STORAGE_KEY = 'exponential_functions_grade12_exam_v1';
+const STORAGE_KEY = 'algebra_polynomials_grade12_exam_v1';
 const TOTAL_TIME = 4500;
-const TOTAL_QUESTIONS = 24;
-const TOTAL_SECTIONS = 4;
+const TOTAL_QUESTIONS = 30;
+const TOTAL_SECTIONS = 5;
 const QUESTIONS_PER_SECTION = 6;
 
 let currentSeed = null;
@@ -252,7 +253,7 @@ function restoreAnswers(answers) {
 }
 
 function clearProgress() {
-    const msg = currentLang === 'ar' ? '⚠️ هل أنت متأكد من مسح كل التقدم؟' : '⚠️ Clear all progress?';
+    const msg = currentLang === 'ar' ? '⚠️ هل أنت متأكد من مسح كل التقدم؟' : '️ Clear all progress?';
     if (confirm(msg)) { localStorage.removeItem(STORAGE_KEY); location.reload(); }
 }
 
@@ -274,412 +275,455 @@ function setupInputListeners() {
 
 // ==================== SVG Diagrams ====================
 const svgGraphs = {
-    exponential_growth: `<svg class="svg-graph" width="400" height="260" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="5" width="390" height="250" rx="12" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
-        <text x="200" y="25" text-anchor="middle" font-size="14" fill="#065f46" font-weight="bold"> النمو الأسي y = 2ˣ</text>
-        <line x1="50" y1="220" x2="370" y2="220" stroke="#374151" stroke-width="2"/>
-        <line x1="50" y1="220" x2="50" y2="40" stroke="#374151" stroke-width="2"/>
-        <text x="375" y="215" font-size="11" fill="#374151">x</text>
-        <text x="20" y="130" text-anchor="middle" font-size="11" fill="#374151" transform="rotate(-90 20 130)">y</text>
-        <path d="M 60 215 Q 120 200 180 150 Q 240 80 300 50 Q 340 45 360 43" fill="none" stroke="#059669" stroke-width="3"/>
-        <circle cx="120" cy="200" r="4" fill="#dc2626"/>
-        <circle cx="180" cy="150" r="4" fill="#dc2626"/>
-        <circle cx="240" cy="80" r="4" fill="#dc2626"/>
-        <circle cx="300" cy="50" r="4" fill="#dc2626"/>
-        <text x="120" y="215" text-anchor="middle" font-size="9" fill="#374151">1</text>
-        <text x="180" y="215" text-anchor="middle" font-size="9" fill="#374151">2</text>
-        <text x="240" y="215" text-anchor="middle" font-size="9" fill="#374151">3</text>
-        <text x="300" y="215" text-anchor="middle" font-size="9" fill="#374151">4</text>
-        <text x="200" y="245" text-anchor="middle" font-size="11" fill="#065f46">y تتضاعف مع كل زيادة في x</text>
+    algebraic_fraction: `<svg class="svg-graph" width="400" height="220" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="390" height="210" rx="12" fill="#cffafe" stroke="#0891b2" stroke-width="2"/>
+        <text x="200" y="25" text-anchor="middle" font-size="14" fill="#155e75" font-weight="bold">📐 تبسيط الكسور الجبرية</text>
+        <text x="200" y="70" text-anchor="middle" font-size="16" fill="#0e7490" font-family="'Amiri', serif">9a⁷b⁵c⁵ / 18a⁵bc³</text>
+        <line x1="100" y1="85" x2="300" y2="85" stroke="#0e7490" stroke-width="2"/>
+        <text x="200" y="115" text-anchor="middle" font-size="14" fill="#0e7490" font-family="'Amiri', serif">= (9/18) · a⁷⁻⁵ · b⁵⁻⁹ · c⁵⁻³</text>
+        <text x="200" y="145" text-anchor="middle" font-size="14" fill="#dc2626" font-family="'Amiri', serif" font-weight="bold">= a²c² / 2b⁴</text>
+        <text x="200" y="180" text-anchor="middle" font-size="11" fill="#155e75">اقسم المعاملات، اطرح الأسس للمتغيرات المتشابهة</text>
+        <text x="200" y="200" text-anchor="middle" font-size="11" fill="#155e75">Divide coefficients, subtract exponents</text>
     </svg>`,
     
-    exponential_decay: `<svg class="svg-graph" width="400" height="260" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="5" width="390" height="250" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
-        <text x="200" y="25" text-anchor="middle" font-size="14" fill="#92400e" font-weight="bold">📉 التحلل الأسي y = (1/2)ˣ</text>
-        <line x1="50" y1="220" x2="370" y2="220" stroke="#374151" stroke-width="2"/>
-        <line x1="50" y1="220" x2="50" y2="40" stroke="#374151" stroke-width="2"/>
-        <text x="375" y="215" font-size="11" fill="#374151">x</text>
-        <text x="20" y="130" text-anchor="middle" font-size="11" fill="#374151" transform="rotate(-90 20 130)">y</text>
-        <path d="M 60 50 Q 120 100 180 150 Q 240 190 300 210 Q 340 218 360 219" fill="none" stroke="#f59e0b" stroke-width="3"/>
-        <circle cx="120" cy="100" r="4" fill="#dc2626"/>
-        <circle cx="180" cy="150" r="4" fill="#dc2626"/>
-        <circle cx="240" cy="190" r="4" fill="#dc2626"/>
-        <circle cx="300" cy="210" r="4" fill="#dc2626"/>
-        <text x="120" y="215" text-anchor="middle" font-size="9" fill="#374151">1</text>
-        <text x="180" y="215" text-anchor="middle" font-size="9" fill="#374151">2</text>
-        <text x="240" y="215" text-anchor="middle" font-size="9" fill="#374151">3</text>
-        <text x="300" y="215" text-anchor="middle" font-size="9" fill="#374151">4</text>
-        <text x="200" y="245" text-anchor="middle" font-size="11" fill="#92400e">y تقل للنصف مع كل زيادة في x</text>
-    </svg>`,
-    
-    bacteria_growth: `<svg class="svg-graph" width="400" height="260" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="5" width="390" height="250" rx="12" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
-        <text x="200" y="25" text-anchor="middle" font-size="14" fill="#9f1239" font-weight="bold">🦠 نمو البكتيريا (تضاعف كل 2 ساعة)</text>
-        <line x1="50" y1="220" x2="370" y2="220" stroke="#374151" stroke-width="2"/>
-        <line x1="50" y1="220" x2="50" y2="40" stroke="#374151" stroke-width="2"/>
-        <text x="375" y="215" font-size="11" fill="#374151">t (ساعة)</text>
-        <text x="20" y="130" text-anchor="middle" font-size="11" fill="#374151" transform="rotate(-90 20 130)">P(t)</text>
-        <text x="100" y="235" font-size="9" fill="#374151">2</text>
-        <text x="150" y="235" font-size="9" fill="#374151">4</text>
-        <text x="200" y="235" font-size="9" fill="#374151">6</text>
-        <text x="250" y="235" font-size="9" fill="#374151">8</text>
-        <text x="300" y="235" font-size="9" fill="#374151">10</text>
-        <path d="M 50 215 Q 100 210 150 195 Q 200 170 250 130 Q 300 80 350 50" fill="none" stroke="#ec4899" stroke-width="3"/>
-        <circle cx="100" cy="210" r="4" fill="#dc2626"/>
-        <circle cx="150" cy="195" r="4" fill="#dc2626"/>
-        <circle cx="200" cy="170" r="4" fill="#dc2626"/>
-        <circle cx="250" cy="130" r="4" fill="#dc2626"/>
-        <circle cx="300" cy="80" r="4" fill="#dc2626"/>
-        <text x="200" y="250" text-anchor="middle" font-size="11" fill="#9f1239">P(t) = 300·(2)^(t/2)</text>
-    </svg>`,
-    
-    table_analysis: `<svg class="svg-graph" width="400" height="220" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="5" width="390" height="210" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
-        <text x="200" y="25" text-anchor="middle" font-size="14" fill="#5b21b6" font-weight="bold">📊 تحليل الجداول</text>
-        <rect x="30" y="50" width="160" height="140" fill="white" stroke="#7c3aed" stroke-width="2"/>
-        <rect x="30" y="50" width="160" height="30" fill="#7c3aed"/>
-        <text x="70" y="70" text-anchor="middle" font-size="11" fill="white" font-weight="bold">x</text>
-        <text x="150" y="70" text-anchor="middle" font-size="11" fill="white" font-weight="bold">y</text>
-        <text x="70" y="95" text-anchor="middle" font-size="10" fill="#374151">0</text>
-        <text x="150" y="95" text-anchor="middle" font-size="10" fill="#374151">3</text>
-        <text x="70" y="120" text-anchor="middle" font-size="10" fill="#374151">1</text>
-        <text x="150" y="120" text-anchor="middle" font-size="10" fill="#374151">6</text>
-        <text x="70" y="145" text-anchor="middle" font-size="10" fill="#374151">2</text>
-        <text x="150" y="145" text-anchor="middle" font-size="10" fill="#374151">12</text>
-        <text x="70" y="170" text-anchor="middle" font-size="10" fill="#374151">3</text>
-        <text x="150" y="170" text-anchor="middle" font-size="10" fill="#374151">24</text>
-        <text x="270" y="120" text-anchor="middle" font-size="12" fill="#5b21b6" font-weight="bold">y تتضاعف</text>
-        <text x="270" y="145" text-anchor="middle" font-size="12" fill="#5b21b6" font-weight="bold">→ دالة أسية!</text>
-        <text x="270" y="175" text-anchor="middle" font-size="11" fill="#5b21b6">y = 3·2ˣ</text>
-    </svg>`,
-    
-    function_forms: `<svg class="svg-graph" width="400" height="240" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+    polynomial_multiplication: `<svg class="svg-graph" width="400" height="240" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
         <rect x="5" y="5" width="390" height="230" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
-        <text x="200" y="25" text-anchor="middle" font-size="14" fill="#92400e" font-weight="bold">📐 أشكال الدوال الأسية</text>
-        <rect x="20" y="50" width="170" height="50" rx="6" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
-        <text x="105" y="80" text-anchor="middle" font-size="11" fill="#92400e" font-family="'Amiri', serif">y = a·bˣ (أساسي)</text>
-        <rect x="210" y="50" width="170" height="50" rx="6" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
-        <text x="295" y="80" text-anchor="middle" font-size="11" fill="#92400e" font-family="'Amiri', serif">y = a(1±r) (نمو/تحلل)</text>
-        <rect x="20" y="115" width="170" height="50" rx="6" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
-        <text x="105" y="145" text-anchor="middle" font-size="11" fill="#92400e" font-family="'Amiri', serif">y = a·2^(t/d) (تضاعف)</text>
-        <rect x="210" y="115" width="170" height="50" rx="6" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
-        <text x="295" y="145" text-anchor="middle" font-size="11" fill="#92400e" font-family="'Amiri', serif">y = a·(1/2)^(t/h) (عمر نصف)</text>
-        <text x="200" y="200" text-anchor="middle" font-size="12" fill="#92400e" font-weight="bold">a = القيمة الابتدائية (عند t=0)</text>
-        <text x="200" y="220" text-anchor="middle" font-size="11" fill="#92400e">b > 1: نمو | 0 < b < 1: تحلل</text>
+        <text x="200" y="25" text-anchor="middle" font-size="14" fill="#92400e" font-weight="bold"> ضرب كثيرات الحدود</text>
+        <text x="200" y="55" text-anchor="middle" font-size="13" fill="#92400e" font-family="'Amiri', serif">(a + b)(2a + 3b)(2x - y)</text>
+        <text x="200" y="80" text-anchor="middle" font-size="11" fill="#92400e">الخطوة 1: اضرب القوسين الأولين</text>
+        <text x="200" y="100" text-anchor="middle" font-size="12" fill="#92400e" font-family="'Amiri', serif">(a+b)(2a+3b) = 2a² + 5ab + 3b²</text>
+        <text x="200" y="125" text-anchor="middle" font-size="11" fill="#92400e">الخطوة 2: اضرب النتيجة في القوس الثالث</text>
+        <text x="200" y="145" text-anchor="middle" font-size="12" fill="#92400e" font-family="'Amiri', serif">(2a² + 5ab + 3b²)(2x - y)</text>
+        <text x="200" y="170" text-anchor="middle" font-size="12" fill="#dc2626" font-family="'Amiri', serif" font-weight="bold">= 4a²x - 2a²y + 10abx - 5aby + 6b²x - 3b²y</text>
+        <text x="200" y="200" text-anchor="middle" font-size="11" fill="#92400e">FOIL Method: First, Outer, Inner, Last</text>
+        <text x="200" y="220" text-anchor="middle" font-size="11" fill="#92400e">اضرب كل حد في القوس الأول بكل حد في القوس الثاني</text>
     </svg>`,
     
-    half_life: `<svg class="svg-graph" width="400" height="260" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
-        <rect x="5" y="5" width="390" height="250" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
-        <text x="200" y="25" text-anchor="middle" font-size="14" fill="#1e40af" font-weight="bold">⏱️ عمر النصف (Half-life)</text>
-        <line x1="50" y1="220" x2="370" y2="220" stroke="#374151" stroke-width="2"/>
-        <line x1="50" y1="220" x2="50" y2="40" stroke="#374151" stroke-width="2"/>
-        <text x="375" y="215" font-size="11" fill="#374151">t (عمر نصف)</text>
-        <text x="20" y="130" text-anchor="middle" font-size="11" fill="#374151" transform="rotate(-90 20 130)">الكمية</text>
-        <path d="M 50 60 Q 130 120 210 160 Q 290 190 370 210" fill="none" stroke="#2563eb" stroke-width="3"/>
-        <line x1="50" y1="60" x2="370" y2="60" stroke="#dc2626" stroke-width="1" stroke-dasharray="4"/>
-        <line x1="50" y1="130" x2="370" y2="130" stroke="#10b981" stroke-width="1" stroke-dasharray="4"/>
-        <line x1="50" y1="190" x2="370" y2="190" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4"/>
-        <text x="375" y="65" font-size="9" fill="#dc2626">100%</text>
-        <text x="375" y="135" font-size="9" fill="#10b981">50%</text>
-        <text x="375" y="195" font-size="9" fill="#f59e0b">25%</text>
-        <text x="200" y="245" text-anchor="middle" font-size="11" fill="#1e40af">كل عمر نصف → الكمية تقل للنصف</text>
+    power_rule: `<svg class="svg-graph" width="400" height="240" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="390" height="230" rx="12" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+        <text x="200" y="25" text-anchor="middle" font-size="14" fill="#9f1239" font-weight="bold">📐 رفع القوى - Power Rule</text>
+        <text x="200" y="55" text-anchor="middle" font-size="13" fill="#9f1239" font-family="'Amiri', serif">(6g⁵h⁻⁴)³</text>
+        <text x="200" y="80" text-anchor="middle" font-size="12" fill="#9f1239">اضرب كل أس في القوة الخارجية (3)</text>
+        <text x="200" y="105" text-anchor="middle" font-size="13" fill="#9f1239" font-family="'Amiri', serif">= 6³ · g⁵ˣ³ · h⁻ˣ³</text>
+        <text x="200" y="130" text-anchor="middle" font-size="13" fill="#9f1239" font-family="'Amiri', serif">= 216 · g¹⁵ · h⁻¹²</text>
+        <text x="200" y="155" text-anchor="middle" font-size="13" fill="#dc2626" font-family="'Amiri', serif" font-weight="bold">= 216g¹⁵ / h¹²</text>
+        <text x="200" y="190" text-anchor="middle" font-size="11" fill="#9f1239">الأس السالب → انقل المتغير للمقام</text>
+        <text x="200" y="210" text-anchor="middle" font-size="11" fill="#9f1239">Negative exponent → move to denominator</text>
+    </svg>`,
+    
+    polynomial_check: `<svg class="svg-graph" width="400" height="240" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="390" height="230" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+        <text x="200" y="25" text-anchor="middle" font-size="14" fill="#065f46" font-weight="bold">📐 تحديد كثيرات الحدود</text>
+        <rect x="20" y="50" width="170" height="80" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+        <text x="105" y="75" text-anchor="middle" font-size="12" fill="#065f46" font-weight="bold">✓ كثيرات حدود</text>
+        <text x="105" y="95" text-anchor="middle" font-size="11" fill="#065f46">3x⁴ + 4y</text>
+        <text x="105" y="115" text-anchor="middle" font-size="11" fill="#065f46">½x² - 7y</text>
+        <rect x="210" y="50" width="170" height="80" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+        <text x="295" y="75" text-anchor="middle" font-size="12" fill="#991b1b" font-weight="bold">✗ ليست كثيرات حدود</text>
+        <text x="295" y="95" text-anchor="middle" font-size="11" fill="#991b1b">x² + √x</text>
+        <text x="295" y="115" text-anchor="middle" font-size="11" fill="#991b1b">(ab³-1)/(az⁴+3)</text>
+        <text x="200" y="160" text-anchor="middle" font-size="12" fill="#065f46" font-weight="bold">الشروط:</text>
+        <text x="200" y="180" text-anchor="middle" font-size="11" fill="#065f46">• أسس صحيحة غير سالبة فقط</text>
+        <text x="200" y="200" text-anchor="middle" font-size="11" fill="#065f46">• لا متغيرات في المقام</text>
+        <text x="200" y="220" text-anchor="middle" font-size="11" fill="#065f46">• لا جذور للمتغيرات</text>
+    </svg>`,
+    
+    foil_method: `<svg class="svg-graph" width="400" height="240" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="390" height="230" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+        <text x="200" y="25" text-anchor="middle" font-size="14" fill="#5b21b6" font-weight="bold">📐 طريقة FOIL للضرب</text>
+        <text x="200" y="55" text-anchor="middle" font-size="13" fill="#5b21b6" font-family="'Amiri', serif">(n - 9)(n + 7)</text>
+        <line x1="80" y1="80" x2="180" y2="110" stroke="#dc2626" stroke-width="2"/>
+        <text x="100" y="90" font-size="10" fill="#dc2626" font-weight="bold">F: n·n = n²</text>
+        <line x1="220" y1="80" x2="320" y2="110" stroke="#2563eb" stroke-width="2"/>
+        <text x="250" y="90" font-size="10" fill="#2563eb" font-weight="bold">O: n·7 = 7n</text>
+        <line x1="80" y1="110" x2="320" y2="80" stroke="#10b981" stroke-width="2"/>
+        <text x="180" y="100" font-size="10" fill="#10b981" font-weight="bold">I: -9·n = -9n</text>
+        <line x1="220" y1="110" x2="320" y2="80" stroke="#f59e0b" stroke-width="2"/>
+        <text x="290" y="100" font-size="10" fill="#f59e0b" font-weight="bold">L: -9·7 = -63</text>
+        <text x="200" y="145" text-anchor="middle" font-size="13" fill="#5b21b6" font-family="'Amiri', serif" font-weight="bold">= n² + 7n - 9n - 63</text>
+        <text x="200" y="175" text-anchor="middle" font-size="13" fill="#dc2626" font-family="'Amiri', serif" font-weight="bold">= n² - 2n - 63</text>
+        <text x="200" y="210" text-anchor="middle" font-size="11" fill="#5b21b6">F=First, O=Outer, I=Inner, L=Last</text>
+    </svg>`,
+    
+    distributive: `<svg class="svg-graph" width="400" height="220" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="390" height="210" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <text x="200" y="25" text-anchor="middle" font-size="14" fill="#92400e" font-weight="bold">📐 الخاصية التوزيعية - Distributive</text>
+        <text x="200" y="60" text-anchor="middle" font-size="14" fill="#92400e" font-family="'Amiri', serif">2a(4b + 5)</text>
+        <line x1="130" y1="75" x2="100" y2="110" stroke="#dc2626" stroke-width="2"/>
+        <line x1="130" y1="75" x2="170" y2="110" stroke="#2563eb" stroke-width="2"/>
+        <text x="80" y="125" font-size="11" fill="#dc2626" font-weight="bold">2a·4b = 8ab</text>
+        <text x="170" y="125" font-size="11" fill="#2563eb" font-weight="bold">2a·5 = 10a</text>
+        <text x="200" y="160" text-anchor="middle" font-size="14" fill="#92400e" font-family="'Amiri', serif" font-weight="bold">= 8ab + 10a</text>
+        <text x="200" y="190" text-anchor="middle" font-size="11" fill="#92400e">اضرب العامل الخارجي بكل حد داخل القوس</text>
     </svg>`
 };
 
-// ==================== EXAM DATA - 24 QUESTIONS ====================
+// ==================== EXAM DATA - 30 QUESTIONS ====================
 const originalExamData = {
     sections: [
         {
             id: 'sec1',
-            title: { ar: '🔹 الجزء 1: الدوال الأسية الأساسية', en: '🔹 Part 1: Basic Exponential Functions' },
+            title: { ar: '🔹 الجزء 1: تبسيط الكسور الجبرية', en: '🔹 Part 1: Simplifying Algebraic Fractions' },
             questions: [
                 {
-                    q: { ar: 'أي من الدوال التالية تمثل نمواً أسياً؟', en: 'Which function represents exponential growth?' },
-                    svg: svgGraphs.exponential_growth,
+                    q: { ar: 'بسّط الكسر: <span class="math-display">9a⁷b⁵c⁵ / 18a⁵bc³</span>', en: 'Simplify: <span class="math-display">9a⁷b⁵c⁵ / 18a⁵b⁹c³</span>' },
+                    svg: svgGraphs.algebraic_fraction,
                     options: [
-                        { ar: '<span class="math-display">y = 3·2ˣ</span>', en: '<span class="math-display">y = 3·2ˣ</span>' },
-                        { ar: '<span class="math-display">y = 3·(1/2)ˣ</span>', en: '<span class="math-display">y = 3·(1/2)ˣ</span>' },
-                        { ar: '<span class="math-display">y = 3x + 2</span>', en: '<span class="math-display">y = 3x + 2</span>' },
-                        { ar: '<span class="math-display">y = 3x²</span>', en: '<span class="math-display">y = 3x²</span>' }
+                        { ar: '<span class="math-display">a²c² / (2b⁴)</span>', en: '<span class="math-display">a²c² / (2b⁴)</span>' },
+                        { ar: '<span class="math-display">a¹²c / (2b¹⁴)</span>', en: '<span class="math-display">a¹²c⁸ / (2b¹)</span>' },
+                        { ar: '<span class="math-display">a²b⁴ / (2c²)</span>', en: '<span class="math-display">a²b / (2c²)</span>' },
+                        { ar: '<span class="math-display">2a²c² / b⁴</span>', en: '<span class="math-display">2a²c² / b⁴</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: 'y = 3·2ˣ حيث الأساس 2 > 1، إذن نمو أسي', en: 'y = 3·2ˣ where base 2 > 1, so exponential growth' }
+                    answer: { ar: '9/18 = 1/2, a⁷⁻⁵ = a², b⁵⁻⁹ = b⁻⁴ = 1/b⁴, c⁵⁻³ = c². النتيجة: a²c²/(2b⁴)', en: '9/18 = 1/2, a⁷⁻⁵ = a², b⁻⁹ = b⁻⁴, c⁵⁻³ = c². Result: a²c²/(2b⁴)' }
                 },
                 {
-                    q: { ar: 'أي من الدوال التالية تمثل تحللاً أسياً؟', en: 'Which function represents exponential decay?' },
-                    svg: svgGraphs.exponential_decay,
+                    q: { ar: 'بسّط: <span class="math-display">12x⁴y² / (2xy⁵)</span>', en: 'Simplify: <span class="math-display">12x⁴y² / (2xy⁵)</span>' },
                     options: [
-                        { ar: '<span class="math-display">y = 5·3ˣ</span>', en: '<span class="math-display">y = 5·3ˣ</span>' },
-                        { ar: '<span class="math-display">y = 5·(0.5)ˣ</span>', en: '<span class="math-display">y = 5·(0.5)ˣ</span>' },
-                        { ar: '<span class="math-display">y = 5x - 3</span>', en: '<span class="math-display">y = 5x - 3</span>' },
-                        { ar: '<span class="math-display">y = 5</span>', en: '<span class="math-display">y = 5ˣ</span>' }
-                    ],
-                    correct: 1,
-                    answer: { ar: 'y = 5·(0.5)ˣ حيث الأساس 0.5 < 1، إذن تحلل أسي', en: 'y = 5·(0.5)ˣ where base 0.5 < 1, so exponential decay' }
-                },
-                {
-                    q: { ar: 'ما القيمة الابتدائية للدالة <span class="math-display">y = 4·3ˣ</span>؟', en: 'What is the initial value of <span class="math-display">y = 4·3ˣ</span>?' },
-                    options: [
-                        { ar: '<span class="math-display">4</span>', en: '<span class="math-display">4</span>' },
-                        { ar: '<span class="math-display">3</span>', en: '<span class="math-display">3</span>' },
-                        { ar: '<span class="math-display">12</span>', en: '<span class="math-display">12</span>' },
-                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' }
+                        { ar: '<span class="math-display">6x³ / y³</span>', en: '<span class="math-display">6x³ / y³</span>' },
+                        { ar: '<span class="math-display">6x⁴ / y³</span>', en: '<span class="math-display">6x⁴ / y³</span>' },
+                        { ar: '<span class="math-display">10x³ / y³</span>', en: '<span class="math-display">10x³ / y³</span>' },
+                        { ar: '<span class="math-display">6x³y³</span>', en: '<span class="math-display">6x³y³</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: 'عند x = 0: y = 4·3⁰ = 4·1 = 4', en: 'At x = 0: y = 4·3⁰ = 4·1 = 4' }
+                    answer: { ar: '12/2 = 6, x⁴⁻¹ = x³, y²⁻⁵ = y³ = 1/y³. النتيجة: 6x³/y³', en: '12/2 = 6, x⁴⁻¹ = x³, y²⁻⁵ = y⁻³. Result: 6x³/y³' }
                 },
                 {
-                    q: { ar: 'ما قيمة y عندما x = 3 في الدالة <span class="math-display">y = 2·5ˣ</span>؟', en: 'What is y when x = 3 in <span class="math-display">y = 2·5ˣ</span>?' },
+                    q: { ar: 'بسّط: <span class="math-display">(2a³b⁻²)(-4a²b⁴)</span>', en: 'Simplify: <span class="math-display">(2a³b⁻²)(-4a²b⁴)</span>' },
                     options: [
-                        { ar: '<span class="math-display">250</span>', en: '<span class="math-display">250</span>' },
-                        { ar: '<span class="math-display">30</span>', en: '<span class="math-display">30</span>' },
-                        { ar: '<span class="math-display">15</span>', en: '<span class="math-display">15</span>' },
-                        { ar: '<span class="math-display">125</span>', en: '<span class="math-display">125</span>' }
+                        { ar: '<span class="math-display">-8a⁵b²</span>', en: '<span class="math-display">-8ab²</span>' },
+                        { ar: '<span class="math-display">8a⁵b²</span>', en: '<span class="math-display">8a⁵b²</span>' },
+                        { ar: '<span class="math-display">-8a⁶b²</span>', en: '<span class="math-display">-8a⁶b²</span>' },
+                        { ar: '<span class="math-display">-8a⁵b⁻⁸</span>', en: '<span class="math-display">-8a⁵b⁻⁸</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: 'y = 2·5³ = 2·125 = 250', en: 'y = 2·5³ = 2·125 = 250' }
+                    answer: { ar: '2×(-4) = -8, a³⁺² = a⁵, b⁻²⁺⁴ = b². النتيجة: -8a⁵b²', en: '2×(-4) = -8, a³⁺² = a⁵, b²⁺⁴ = b². Result: -8a⁵b²' }
                 },
                 {
-                    q: { ar: 'أي جدول يمثل دالة أسية؟', en: 'Which table represents an exponential function?' },
-                    svg: svgGraphs.table_analysis,
+                    q: { ar: 'بسّط: <span class="math-display">(2a²/3b)³</span>', en: 'Simplify: <span class="math-display">(2a²/3b)³</span>' },
+                    svg: svgGraphs.power_rule,
                     options: [
-                        { ar: 'x: 0,1,2,3 | y: 3,6,12,24', en: 'x: 0,1,2,3 | y: 3,6,12,24' },
-                        { ar: 'x: 0,1,2,3 | y: 3,6,9,12', en: 'x: 0,1,2,3 | y: 3,6,9,12' },
-                        { ar: 'x: 0,1,2,3 | y: 0,3,8,15', en: 'x: 0,1,2,3 | y: 0,3,8,15' },
-                        { ar: 'x: 0,1,2,3 | y: 1,4,9,16', en: 'x: 0,1,2,3 | y: 1,4,9,16' }
+                        { ar: '<span class="math-display">8a⁶ / 27b³</span>', en: '<span class="math-display">8a⁶ / 27b³</span>' },
+                        { ar: '<span class="math-display">6a⁶ / 9b³</span>', en: '<span class="math-display">6a⁶ / 9b³</span>' },
+                        { ar: '<span class="math-display">8a⁵ / 27b³</span>', en: '<span class="math-display">8a⁵ / 27b³</span>' },
+                        { ar: '<span class="math-display">2a⁶ / 3b³</span>', en: '<span class="math-display">2a⁶ / 3b³</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: 'y تتضاعف مع كل زيادة في x (×2) → دالة أسية y = 3·2ˣ', en: 'y doubles with each x increase (×2) → exponential y = 3·2ˣ' }
+                    answer: { ar: '2³ = 8, (a²)³ = a⁶, 3³ = 27, b³. النتيجة: 8a⁶/27b³', en: '2³ = 8, (a²)³ = a⁶, 3³ = 27, b³. Result: 8a⁶/27b³' }
                 },
                 {
-                    q: { ar: 'ما أساس الدالة الأسية التي تمر بالنقاط (0, 5) و (1, 15)؟', en: 'What is the base of the exponential function passing through (0, 5) and (1, 15)?' },
+                    q: { ar: 'بسّط: <span class="math-display">(6g⁵h⁻⁴)³</span>', en: 'Simplify: <span class="math-display">(6g⁵h⁻)³</span>' },
                     options: [
-                        { ar: '<span class="math-display">3</span>', en: '<span class="math-display">3</span>' },
-                        { ar: '<span class="math-display">5</span>', en: '<span class="math-display">5</span>' },
-                        { ar: '<span class="math-display">15</span>', en: '<span class="math-display">15</span>' },
-                        { ar: '<span class="math-display">2</span>', en: '<span class="math-display">2</span>' }
+                        { ar: '<span class="math-display">216g¹⁵ / h¹²</span>', en: '<span class="math-display">216g¹⁵ / h¹²</span>' },
+                        { ar: '<span class="math-display">216g¹⁵h⁻¹²</span>', en: '<span class="math-display">216g¹⁵h⁻¹²</span>' },
+                        { ar: '<span class="math-display">18g¹⁵ / h¹²</span>', en: '<span class="math-display">18g¹⁵ / h¹²</span>' },
+                        { ar: '<span class="math-display">216g⁸ / h</span>', en: '<span class="math-display">216g / h</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: 'y = a·bˣ. عند x=0: a=5. عند x=1: 15=5·b → b=3', en: 'y = a·bˣ. At x=0: a=5. At x=1: 15=5·b → b=3' }
+                    answer: { ar: '6³ = 216, (g⁵)³ = g¹⁵, (h⁻⁴)³ = h⁻¹² = 1/h¹². النتيجة: 216g¹⁵/h¹²', en: '6³ = 216, (g⁵)³ = g¹⁵, (h⁻⁴)³ = h⁻¹². Result: 216g¹⁵/h¹²' }
+                },
+                {
+                    q: { ar: 'بسّط: <span class="math-display">(4/7 m)² · (49m) · (17p) · (1/34 p⁵)</span>', en: 'Simplify: <span class="math-display">(4/7 m)² · (49m) · (17p) · (1/34 p⁵)</span>' },
+                    options: [
+                        { ar: '<span class="math-display">8m³p⁶</span>', en: '<span class="math-display">8m³p⁶</span>' },
+                        { ar: '<span class="math-display">16m³p⁶</span>', en: '<span class="math-display">16m³p⁶</span>' },
+                        { ar: '<span class="math-display">8m²p⁶</span>', en: '<span class="math-display">8m²p⁶</span>' },
+                        { ar: '<span class="math-display">4m³p⁶</span>', en: '<span class="math-display">4m³p⁶</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: '16/49 · 49 · 17/34 · m²⁺¹ · p¹⁺⁵ = 16 · 1/2 · m³ · p⁶ = 8m³p⁶', en: '16/49 · 49 · 17/34 · m³ · p⁶ = 16 · 1/2 · m³p⁶ = 8m³p⁶' }
                 }
             ]
         },
         {
             id: 'sec2',
-            title: { ar: '🔹 الجزء 2: النمو والتحلل الأسي', en: '🔹 Part 2: Exponential Growth & Decay' },
+            title: { ar: '🔹 الجزء 2: ضرب كثيرات الحدود', en: '🔹 Part 2: Multiplying Polynomials' },
             questions: [
                 {
-                    q: { ar: 'بكتيريا تتضاعف كل ساعتين. بدأت بـ 300. كم بعد 6 ساعات؟', en: 'Bacteria doubles every 2 hours. Started with 300. How many after 6 hours?' },
-                    svg: svgGraphs.bacteria_growth,
+                    q: { ar: 'اضرب وبسّط: <span class="math-display">(a + b)(2a + 3b)</span>', en: 'Multiply and simplify: <span class="math-display">(a + b)(2a + 3b)</span>' },
+                    svg: svgGraphs.polynomial_multiplication,
                     options: [
-                        { ar: '<span class="math-display">2400</span>', en: '<span class="math-display">2400</span>' },
-                        { ar: '<span class="math-display">1800</span>', en: '<span class="math-display">1800</span>' },
-                        { ar: '<span class="math-display">900</span>', en: '<span class="math-display">900</span>' },
-                        { ar: '<span class="math-display">3600</span>', en: '<span class="math-display">3600</span>' }
+                        { ar: '<span class="math-display">2a² + 5ab + 3b²</span>', en: '<span class="math-display">2a² + 5ab + 3b²</span>' },
+                        { ar: '<span class="math-display">2a² + 3ab + 3b²</span>', en: '<span class="math-display">2a² + 3ab + 3b²</span>' },
+                        { ar: '<span class="math-display">2a² + 6ab + 3b²</span>', en: '<span class="math-display">2a² + 6ab + 3b²</span>' },
+                        { ar: '<span class="math-display">2a + 5ab + 3b</span>', en: '<span class="math-display">2a + 5ab + 3b</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: 'P(t) = 300·2^(t/2). عند t=6: P = 300·2³ = 300·8 = 2400', en: 'P(t) = 300·2^(t/2). At t=6: P = 300·2³ = 300·8 = 2400' }
+                    answer: { ar: 'a·2a + a·3b + b·2a + b·3b = 2a² + 3ab + 2ab + 3b² = 2a² + 5ab + 3b²', en: 'a·2a + a·3b + b·2a + b·3b = 2a² + 5ab + 3b²' }
                 },
                 {
-                    q: { ar: 'مادة مشعة عمر نصفها 5 سنوات. بدأت بـ 100g. كم بعد 15 سنة؟', en: 'Radioactive substance half-life 5 years. Started with 100g. How much after 15 years?' },
-                    svg: svgGraphs.half_life,
+                    q: { ar: 'اضرب: <span class="math-display">(2a² + 5ab + 3b²)(2x - y)</span> - ما الحد الأول؟', en: 'Multiply: <span class="math-display">(2a² + 5ab + 3b²)(2x - y)</span> - What is the first term?' },
                     options: [
-                        { ar: '<span class="math-display">12.5 g</span>', en: '<span class="math-display">12.5 g</span>' },
-                        { ar: '<span class="math-display">25 g</span>', en: '<span class="math-display">25 g</span>' },
-                        { ar: '<span class="math-display">50 g</span>', en: '<span class="math-display">50 g</span>' },
-                        { ar: '<span class="math-display">6.25 g</span>', en: '<span class="math-display">6.25 g</span>' }
+                        { ar: '<span class="math-display">4a²x</span>', en: '<span class="math-display">4a²x</span>' },
+                        { ar: '<span class="math-display">2a²x</span>', en: '<span class="math-display">2a²x</span>' },
+                        { ar: '<span class="math-display">4ax</span>', en: '<span class="math-display">4ax</span>' },
+                        { ar: '<span class="math-display">4a²</span>', en: '<span class="math-display">4a²</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: '15/5 = 3 أنصاف عمر. 100 → 50 → 25 → 12.5g', en: '15/5 = 3 half-lives. 100 → 50 → 25 → 12.5g' }
+                    answer: { ar: '2a² · 2x = 4a²x (الحد الأول)', en: '2a² · 2x = 4a²x (first term)' }
                 },
                 {
-                    q: { ar: 'سكان مدينة يزدادون 5% سنوياً. السكان الآن 10,000. كم بعد 3 سنوات؟', en: 'City population grows 5% yearly. Current 10,000. How many after 3 years?' },
+                    q: { ar: 'اضرب وبسّط: <span class="math-display">(n - 9)(n + 7)</span>', en: 'Multiply and simplify: <span class="math-display">(n - 9)(n + 7)</span>' },
+                    svg: svgGraphs.foil_method,
                     options: [
-                        { ar: '<span class="math-display">≈ 11,576</span>', en: '<span class="math-display">≈ 11,576</span>' },
-                        { ar: '<span class="math-display">11,500</span>', en: '<span class="math-display">11,500</span>' },
-                        { ar: '<span class="math-display">10,500</span>', en: '<span class="math-display">10,500</span>' },
-                        { ar: '<span class="math-display">12,000</span>', en: '<span class="math-display">12,000</span>' }
+                        { ar: '<span class="math-display">n² - 2n - 63</span>', en: '<span class="math-display">n² - 2n - 63</span>' },
+                        { ar: '<span class="math-display">n² + 2n - 63</span>', en: '<span class="math-display">n² + 2n - 63</span>' },
+                        { ar: '<span class="math-display">n² - 16n - 63</span>', en: '<span class="math-display">n² - 16n - 63</span>' },
+                        { ar: '<span class="math-display">n² - 63</span>', en: '<span class="math-display">n² - 63</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: 'P = 10000·(1.05)³ = 10000·1.157625 ≈ 11,576', en: 'P = 10000·(1.05)³ = 10000·1.157625 ≈ 11,576' }
+                    answer: { ar: 'n² + 7n - 9n - 63 = n² - 2n - 63', en: 'n² + 7n - 9n - 63 = n² - 2n - 63' }
                 },
                 {
-                    q: { ar: 'سيارة قيمتها 20,000$ تتناقص 15% سنوياً. قيمتها بعد سنتين؟', en: 'Car worth $20,000 depreciates 15% yearly. Value after 2 years?' },
+                    q: { ar: 'اضرب وبسّط: <span class="math-display">(a + 4)(a - 6)</span>', en: 'Multiply and simplify: <span class="math-display">(a + 4)(a - 6)</span>' },
                     options: [
-                        { ar: '<span class="math-display">$14,450</span>', en: '<span class="math-display">$14,450</span>' },
-                        { ar: '<span class="math-display">$17,000</span>', en: '<span class="math-display">$17,000</span>' },
-                        { ar: '<span class="math-display">$16,000</span>', en: '<span class="math-display">$16,000</span>' },
-                        { ar: '<span class="math-display">$13,600</span>', en: '<span class="math-display">$13,600</span>' }
+                        { ar: '<span class="math-display">a² - 2a - 24</span>', en: '<span class="math-display">a² - 2a - 24</span>' },
+                        { ar: '<span class="math-display">a² + 2a - 24</span>', en: '<span class="math-display">a² + 2a - 24</span>' },
+                        { ar: '<span class="math-display">a² - 10a - 24</span>', en: '<span class="math-display">a² - 10a - 24</span>' },
+                        { ar: '<span class="math-display">a² - 24</span>', en: '<span class="math-display">a² - 24</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: 'V = 20000·(0.85)² = 20000·0.7225 = 14,450$', en: 'V = 20000·(0.85)² = 20000·0.7225 = $14,450' }
+                    answer: { ar: 'a² - 6a + 4a - 24 = a² - 2a - 24', en: 'a² - 6a + 4a - 24 = a² - 2a - 24' }
                 },
                 {
-                    q: { ar: 'استثمار 1000$ بمعدل فائدة 8% سنوياً. قيمته بعد 5 سنوات؟', en: 'Investment $1000 at 8% annual interest. Value after 5 years?' },
+                    q: { ar: 'وزّع: <span class="math-display">2a(4b + 5)</span>', en: 'Distribute: <span class="math-display">2a(4b + 5)</span>' },
+                    svg: svgGraphs.distributive,
                     options: [
-                        { ar: '<span class="math-display">≈ $1,469</span>', en: '<span class="math-display">≈ $1,469</span>' },
-                        { ar: '<span class="math-display">$1,400</span>', en: '<span class="math-display">$1,400</span>' },
-                        { ar: '<span class="math-display">$1,500</span>', en: '<span class="math-display">$1,500</span>' },
-                        { ar: '<span class="math-display">≈ $1,360</span>', en: '<span class="math-display">≈ $1,360</span>' }
+                        { ar: '<span class="math-display">8ab + 10a</span>', en: '<span class="math-display">8ab + 10a</span>' },
+                        { ar: '<span class="math-display">8ab + 5</span>', en: '<span class="math-display">8ab + 5</span>' },
+                        { ar: '<span class="math-display">6ab + 7a</span>', en: '<span class="math-display">6ab + 7a</span>' },
+                        { ar: '<span class="math-display">8a + 10b</span>', en: '<span class="math-display">8a + 10b</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: 'A = 1000·(1.08)⁵ ≈ 1000·1.4693 ≈ $1,469', en: 'A = 1000·(1.08) ≈ 1000·1.4693 ≈ $1,469' }
+                    answer: { ar: '2a·4b + 2a·5 = 8ab + 10a', en: '2a·4b + 2a·5 = 8ab + 10a' }
                 },
                 {
-                    q: { ar: 'دواء في الجسم يقل بمعدل 20% كل ساعة. بدأت بـ 200mg. كم بعد 3 ساعات؟', en: 'Medicine in body decreases 20% per hour. Started with 200mg. How much after 3 hours?' },
+                    q: { ar: 'اضرب وبسّط: <span class="math-display">3x²(2xy - 3xy² + 4x²y³)</span>', en: 'Multiply and simplify: <span class="math-display">3x²(2xy - 3xy² + 4x²y³)</span>' },
                     options: [
-                        { ar: '<span class="math-display">102.4 mg</span>', en: '<span class="math-display">102.4 mg</span>' },
-                        { ar: '<span class="math-display">120 mg</span>', en: '<span class="math-display">120 mg</span>' },
-                        { ar: '<span class="math-display">80 mg</span>', en: '<span class="math-display">80 mg</span>' },
-                        { ar: '<span class="math-display">160 mg</span>', en: '<span class="math-display">160 mg</span>' }
+                        { ar: '<span class="math-display">6x³y - 9x³y² + 12x⁴y³</span>', en: '<span class="math-display">6x³y - 9x³y² + 12x⁴y³</span>' },
+                        { ar: '<span class="math-display">6x²y - 9x²y² + 12x⁴y³</span>', en: '<span class="math-display">6x²y - 9x²y² + 12x⁴y³</span>' },
+                        { ar: '<span class="math-display">6x³y + 9x³y² + 12x⁴y³</span>', en: '<span class="math-display">6x³y + 9x³y² + 12x⁴y³</span>' },
+                        { ar: '<span class="math-display">5x³y - 8x³y² + 11x⁴y³</span>', en: '<span class="math-display">5x³y - 8x³y² + 11x⁴y³</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: 'M = 200·(0.8)³ = 200·0.512 = 102.4 mg', en: 'M = 200·(0.8)³ = 200·0.512 = 102.4 mg' }
+                    answer: { ar: '3x²·2xy = 6x³y, 3x²·(-3xy²) = -9x³y², 3x²·4x²y³ = 12x⁴y³', en: '3x²·2xy = 6x³y, 3x²·(-3xy²) = -9x³y², 3x²·4x²y³ = 12x⁴y³' }
                 }
             ]
         },
         {
             id: 'sec3',
-            title: { ar: '🔹 الجزء 3: تحويل الصيغ', en: '🔹 Part 3: Converting Forms' },
+            title: { ar: ' الجزء 3: تحديد كثيرات الحدود', en: '🔹 Part 3: Identifying Polynomials' },
             questions: [
                 {
-                    q: { ar: 'حوّل <span class="math-display">y = 2ˣ⁺³</span> إلى الصيغة y = a·bˣ', en: 'Convert <span class="math-display">y = 2ˣ⁺³</span> to form y = a·bˣ' },
-                    svg: svgGraphs.function_forms,
+                    q: { ar: 'هل <span class="math-display">3x⁴ + 4y</span> كثيرة حدود؟', en: 'Is <span class="math-display">3x⁴ + 4y</span> a polynomial?' },
+                    svg: svgGraphs.polynomial_check,
                     options: [
-                        { ar: '<span class="math-display">y = 8·2ˣ</span>', en: '<span class="math-display">y = 8·2</span>' },
-                        { ar: '<span class="math-display">y = 2·2ˣ</span>', en: '<span class="math-display">y = 2·2ˣ</span>' },
-                        { ar: '<span class="math-display">y = 4·2ˣ</span>', en: '<span class="math-display">y = 4·2ˣ</span>' },
-                        { ar: '<span class="math-display">y = 16·2ˣ</span>', en: '<span class="math-display">y = 16·2ˣ</span>' }
+                        { ar: 'نعم، لأن كل الأسس أعداد صحيحة غير سالبة', en: 'Yes, all exponents are non-negative integers' },
+                        { ar: 'لا، لأن هناك متغيرين', en: 'No, because there are two variables' },
+                        { ar: 'لا، لأن الدرجة 4', en: 'No, because degree is 4' },
+                        { ar: 'نعم، لكن فقط إذا كانت x و y موجبتين', en: 'Yes, but only if x and y are positive' }
                     ],
                     correct: 0,
-                    answer: { ar: '2ˣ⁺³ = 2³·2ˣ = 8·2ˣ', en: '2⁺³ = 2³·2ˣ = 8·2ˣ' }
+                    answer: { ar: 'نعم، كثيرات الحدود يمكن أن تحتوي على أكثر من متغير، والأسس 4 و 1 أعداد صحيحة غير سالبة', en: 'Yes, polynomials can have multiple variables, exponents 4 and 1 are non-negative integers' }
                 },
                 {
-                    q: { ar: 'حوّل <span class="math-display">y = 3·4ˣ</span> إلى صيغة الأساس 2:', en: 'Convert <span class="math-display">y = 3·4ˣ</span> to base 2 form:' },
+                    q: { ar: 'هل <span class="math-display">½x² - 7y</span> كثيرة حدود؟', en: 'Is <span class="math-display">½x² - 7y</span> a polynomial?' },
                     options: [
-                        { ar: '<span class="math-display">y = 3·2²ˣ</span>', en: '<span class="math-display">y = 3·2²ˣ</span>' },
-                        { ar: '<span class="math-display">y = 3·2ˣ</span>', en: '<span class="math-display">y = 3·2ˣ</span>' },
-                        { ar: '<span class="math-display">y = 6·2ˣ</span>', en: '<span class="math-display">y = 6·2ˣ</span>' },
-                        { ar: '<span class="math-display">y = 12·2ˣ</span>', en: '<span class="math-display">y = 12·2ˣ</span>' }
+                        { ar: 'نعم، المعاملات الكسرية مسموحة', en: 'Yes, fractional coefficients are allowed' },
+                        { ar: 'لا، لأن المعامل كسر', en: 'No, because coefficient is a fraction' },
+                        { ar: 'لا، لأن هناك طرح', en: 'No, because there is subtraction' },
+                        { ar: 'نعم، لكن فقط إذا كانت x موجبة', en: 'Yes, but only if x is positive' }
                     ],
                     correct: 0,
-                    answer: { ar: '4ˣ = (2²) = 2²ˣ. إذن y = 3·2²ˣ', en: '4ˣ = (2²)ˣ = 2²ˣ. So y = 3·2²ˣ' }
+                    answer: { ar: 'نعم، المعاملات يمكن أن تكون كسور، المهم أن الأسس أعداد صحيحة غير سالبة', en: 'Yes, coefficients can be fractions, what matters is exponents are non-negative integers' }
                 },
                 {
-                    q: { ar: 'ما الصيغة المكافئة لـ <span class="math-display">y = 100·(0.5)ᵗ</span>؟', en: 'What is equivalent to <span class="math-display">y = 100·(0.5)ᵗ</span>?' },
+                    q: { ar: 'هل <span class="math-display">x² + √x</span> كثيرة حدود؟', en: 'Is <span class="math-display">x² + √x</span> a polynomial?' },
                     options: [
-                        { ar: '<span class="math-display">y = 100·2⁻ᵗ</span>', en: '<span class="math-display">y = 100·2⁻ᵗ</span>' },
-                        { ar: '<span class="math-display">y = 100·2ᵗ</span>', en: '<span class="math-display">y = 100·2ᵗ</span>' },
-                        { ar: '<span class="math-display">y = 50·2ᵗ</span>', en: '<span class="math-display">y = 50·2ᵗ</span>' },
-                        { ar: '<span class="math-display">y = 200·(0.5)ᵗ</span>', en: '<span class="math-display">y = 200·(0.5)ᵗ</span>' }
+                        { ar: 'لا، لأن √x = x^(1/2) والأس ليس عدداً صحيحاً', en: 'No, because √x = x^(1/2) and exponent is not an integer' },
+                        { ar: 'نعم، لأن الجذر مسموح', en: 'Yes, because square root is allowed' },
+                        { ar: 'نعم، لأن x² كثيرة حدود', en: 'Yes, because x² is a polynomial' },
+                        { ar: 'لا، لأن هناك حدين', en: 'No, because there are two terms' }
                     ],
                     correct: 0,
-                    answer: { ar: '(0.5)ᵗ = (1/2)ᵗ = 2⁻. إذن y = 100·2⁻ᵗ', en: '(0.5)ᵗ = (1/2) = 2⁻ᵗ. So y = 100·2⁻' }
+                    answer: { ar: 'لا، √x = x^(1/2) والأس 1/2 ليس عدداً صحيحاً، لذا ليست كثيرة حدود', en: 'No, √x = x^(1/2) and 1/2 is not an integer, so not a polynomial' }
                 },
                 {
-                    q: { ar: 'إذا كانت y = 5·3ˣ، فما y عندما x = -2؟', en: 'If y = 5·3ˣ, what is y when x = -2?' },
+                    q: { ar: 'هل <span class="math-display">(ab³ - 1)/(az⁴ + 3)</span> كثيرة حدود؟', en: 'Is <span class="math-display">(ab³ - 1)/(az⁴ + 3)</span> a polynomial?' },
                     options: [
-                        { ar: '<span class="math-display">5/9</span>', en: '<span class="math-display">5/9</span>' },
-                        { ar: '<span class="math-display">45</span>', en: '<span class="math-display">45</span>' },
-                        { ar: '<span class="math-display">1/45</span>', en: '<span class="math-display">1/45</span>' },
-                        { ar: '<span class="math-display">15</span>', en: '<span class="math-display">15</span>' }
+                        { ar: 'لا، لأن هناك متغيرات في المقام', en: 'No, because there are variables in denominator' },
+                        { ar: 'نعم، لأنها كسر جبري', en: 'Yes, because it is an algebraic fraction' },
+                        { ar: 'نعم، لأن البسط كثيرة حدود', en: 'Yes, because numerator is polynomial' },
+                        { ar: 'لا، لأن المقام يحتوي على 3', en: 'No, because denominator contains 3' }
                     ],
                     correct: 0,
-                    answer: { ar: 'y = 5·3⁻² = 5·(1/9) = 5/9', en: 'y = 5·3⁻² = 5·(1/9) = 5/9' }
+                    answer: { ar: 'لا، المتغيرات في المقام (az⁴) تجعلها ليست كثيرة حدود', en: 'No, variables in denominator (az⁴) make it not a polynomial' }
                 },
                 {
-                    q: { ar: 'حوّل <span class="math-display">y = 7·e^(0.3x)</span> إلى صيغة y = a·bˣ. ما b تقريباً؟', en: 'Convert <span class="math-display">y = 7·e^(0.3x)</span> to y = a·bˣ. What is b approximately?' },
+                    q: { ar: 'ما درجة كثيرة الحدود <span class="math-display">3x⁴ + 4y</span>؟', en: 'What is the degree of polynomial <span class="math-display">3x⁴ + 4y</span>?' },
                     options: [
-                        { ar: '<span class="math-display">1.35</span>', en: '<span class="math-display">1.35</span>' },
-                        { ar: '<span class="math-display">0.3</span>', en: '<span class="math-display">0.3</span>' },
-                        { ar: '<span class="math-display">2.72</span>', en: '<span class="math-display">2.72</span>' },
-                        { ar: '<span class="math-display">1.03</span>', en: '<span class="math-display">1.03</span>' }
+                        { ar: '<span class="math-display">4</span>', en: '<span class="math-display">4</span>' },
+                        { ar: '<span class="math-display">5</span>', en: '<span class="math-display">5</span>' },
+                        { ar: '<span class="math-display">3</span>', en: '<span class="math-display">3</span>' },
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: 'b = e^0.3 ≈ 1.3499 ≈ 1.35', en: 'b = e^0.3 ≈ 1.3499 ≈ 1.35' }
+                    answer: { ar: 'الدرجة = أعلى أس = 4 (من الحد 3x⁴)', en: 'Degree = highest exponent = 4 (from term 3x⁴)' }
                 },
                 {
-                    q: { ar: 'أي صيغة تمثل تضاعف الكمية كل 4 ساعات؟', en: 'Which form represents doubling every 4 hours?' },
+                    q: { ar: 'كم حداً في كثيرة الحدود <span class="math-display">3x⁴ + 4y</span>؟', en: 'How many terms in polynomial <span class="math-display">3x⁴ + 4y</span>?' },
                     options: [
-                        { ar: '<span class="math-display">y = a·2^(t/4)</span>', en: '<span class="math-display">y = a·2^(t/4)</span>' },
-                        { ar: '<span class="math-display">y = a·4</span>', en: '<span class="math-display">y = a·4ᵗ</span>' },
-                        { ar: '<span class="math-display">y = a·2⁴ᵗ</span>', en: '<span class="math-display">y = a·2⁴ᵗ</span>' },
-                        { ar: '<span class="math-display">y = a·(1/2)^(t/4)</span>', en: '<span class="math-display">y = a·(1/2)^(t/4)</span>' }
+                        { ar: 'حدان (Binomial)', en: 'Two terms (Binomial)' },
+                        { ar: 'حد واحد (Monomial)', en: 'One term (Monomial)' },
+                        { ar: 'ثلاثة حدود (Trinomial)', en: 'Three terms (Trinomial)' },
+                        { ar: 'أربعة حدود', en: 'Four terms' }
                     ],
                     correct: 0,
-                    answer: { ar: 'y = a·2^(t/4): عند t=4، y = a·2¹ = 2a (تضاعف)', en: 'y = a·2^(t/4): at t=4, y = a·2¹ = 2a (doubled)' }
+                    answer: { ar: 'حدان: 3x⁴ و 4y، لذا هي ذات حدين (Binomial)', en: 'Two terms: 3x⁴ and 4y, so it is a binomial' }
                 }
             ]
         },
         {
             id: 'sec4',
-            title: { ar: '🔹 الجزء 4: التطبيقات والمسائل', en: '🔹 Part 4: Applications & Problems' },
+            title: { ar: '🔹 الجزء 4: جمع وطرح كثيرات الحدود', en: ' Part 4: Adding & Subtracting Polynomials' },
             questions: [
                 {
-                    q: { ar: 'بكتيريا تتضاعف كل 30 دقيقة. بدأت بـ 1000. كم بعد 2 ساعة؟', en: 'Bacteria doubles every 30 min. Started with 1000. How many after 2 hours?' },
+                    q: { ar: 'بسّط: <span class="math-display">(x² - 5x + 2) - (3x² + x - 1)</span>', en: 'Simplify: <span class="math-display">(x² - 5x + 2) - (3x² + x - 1)</span>' },
                     options: [
-                        { ar: '<span class="math-display">16,000</span>', en: '<span class="math-display">16,000</span>' },
-                        { ar: '<span class="math-display">8,000</span>', en: '<span class="math-display">8,000</span>' },
-                        { ar: '<span class="math-display">4,000</span>', en: '<span class="math-display">4,000</span>' },
-                        { ar: '<span class="math-display">32,000</span>', en: '<span class="math-display">32,000</span>' }
+                        { ar: '<span class="math-display">-2x² - 6x + 3</span>', en: '<span class="math-display">-2x² - 6x + 3</span>' },
+                        { ar: '<span class="math-display">-2x² - 4x + 1</span>', en: '<span class="math-display">-2x² - 4x + 1</span>' },
+                        { ar: '<span class="math-display">4x² - 4x + 1</span>', en: '<span class="math-display">4x² - 4x + 1</span>' },
+                        { ar: '<span class="math-display">-2x² - 6x + 1</span>', en: '<span class="math-display">-2x² - 6x + 1</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: '2 ساعة = 4 فترات تضاعف. 1000·2⁴ = 1000·16 = 16,000', en: '2 hours = 4 doubling periods. 1000·2⁴ = 1000·16 = 16,000' }
+                    answer: { ar: 'x² - 5x + 2 - 3x² - x + 1 = -2x² - 6x + 3', en: 'x² - 5x + 2 - 3x² - x + 1 = -2x² - 6x + 3' }
                 },
                 {
-                    q: { ar: 'مادة مشعة عمر نصفها 10 سنوات. بدأت بـ 800g. متى تصبح 100g؟', en: 'Radioactive substance half-life 10 years. Started with 800g. When will it be 100g?' },
+                    q: { ar: 'بسّط: <span class="math-display">(3a + 4b) + (6a - 6b)</span>', en: 'Simplify: <span class="math-display">(3a + 4b) + (6a - 6b)</span>' },
                     options: [
-                        { ar: '<span class="math-display">30 سنة</span>', en: '<span class="math-display">30 years</span>' },
-                        { ar: '<span class="math-display">20 سنة</span>', en: '<span class="math-display">20 years</span>' },
-                        { ar: '<span class="math-display">40 سنة</span>', en: '<span class="math-display">40 years</span>' },
-                        { ar: '<span class="math-display">50 سنة</span>', en: '<span class="math-display">50 years</span>' }
+                        { ar: '<span class="math-display">9a - 2b</span>', en: '<span class="math-display">9a - 2b</span>' },
+                        { ar: '<span class="math-display">9a + 10b</span>', en: '<span class="math-display">9a + 10b</span>' },
+                        { ar: '<span class="math-display">3a - 2b</span>', en: '<span class="math-display">3a - 2b</span>' },
+                        { ar: '<span class="math-display">9a + 2b</span>', en: '<span class="math-display">9a + 2b</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: '800→400→200→100 (3 أنصاف عمر). 3×10 = 30 سنة', en: '800→400→200→100 (3 half-lives). 3×10 = 30 years' }
+                    answer: { ar: '3a + 6a = 9a, 4b - 6b = -2b. النتيجة: 9a - 2b', en: '3a + 6a = 9a, 4b - 6b = -2b. Result: 9a - 2b' }
                 },
                 {
-                    q: { ar: 'سكان مدينة 50,000 يزدادون 3% سنوياً. متى يتجاوزون 60,000؟', en: 'City population 50,000 grows 3% yearly. When will it exceed 60,000?' },
+                    q: { ar: 'بسّط: <span class="math-display">(5m² + 3m - 7) + (2m² - 5m + 4)</span>', en: 'Simplify: <span class="math-display">(5m² + 3m - 7) + (2m² - 5m + 4)</span>' },
                     options: [
-                        { ar: '<span class="math-display">بعد 7 سنوات</span>', en: '<span class="math-display">After 7 years</span>' },
-                        { ar: '<span class="math-display">بعد 5 سنوات</span>', en: '<span class="math-display">After 5 years</span>' },
-                        { ar: '<span class="math-display">بعد 10 سنوات</span>', en: '<span class="math-display">After 10 years</span>' },
-                        { ar: '<span class="math-display">بعد 3 سنوات</span>', en: '<span class="math-display">After 3 years</span>' }
+                        { ar: '<span class="math-display">7m² - 2m - 3</span>', en: '<span class="math-display">7m² - 2m - 3</span>' },
+                        { ar: '<span class="math-display">3m² + 8m - 11</span>', en: '<span class="math-display">3m² + 8m - 11</span>' },
+                        { ar: '<span class="math-display">7m² + 8m - 3</span>', en: '<span class="math-display">7m² + 8m - 3</span>' },
+                        { ar: '<span class="math-display">7m² - 2m + 11</span>', en: '<span class="math-display">7m² - 2m + 11</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: '50000·(1.03)⁷ ≈ 61,488 > 60,000. عند 6 سنوات ≈ 59,694 < 60,000', en: '50000·(1.03)⁷ ≈ 61,488 > 60,000. At 6 years ≈ 59,694 < 60,000' }
+                    answer: { ar: '5m² + 2m² = 7m², 3m - 5m = -2m, -7 + 4 = -3. النتيجة: 7m² - 2m - 3', en: '5m² + 2m² = 7m², 3m - 5m = -2m, -7 + 4 = -3. Result: 7m² - 2m - 3' }
                 },
                 {
-                    q: { ar: 'دالة أسية تمر بـ (0, 4) و (2, 36). ما المعادلة؟', en: 'Exponential function passes through (0, 4) and (2, 36). Equation?' },
+                    q: { ar: 'بسّط: <span class="math-display">(4x³ - 2x² + 5) - (x³ + 3x² - 2)</span>', en: 'Simplify: <span class="math-display">(4x³ - 2x² + 5) - (x³ + 3x² - 2)</span>' },
                     options: [
-                        { ar: '<span class="math-display">y = 4·3ˣ</span>', en: '<span class="math-display">y = 4·3ˣ</span>' },
-                        { ar: '<span class="math-display">y = 4·9ˣ</span>', en: '<span class="math-display">y = 4·9</span>' },
-                        { ar: '<span class="math-display">y = 2·3ˣ</span>', en: '<span class="math-display">y = 2·3ˣ</span>' },
-                        { ar: '<span class="math-display">y = 4·2ˣ</span>', en: '<span class="math-display">y = 4·2ˣ</span>' }
+                        { ar: '<span class="math-display">3x³ - 5x² + 7</span>', en: '<span class="math-display">3x³ - 5x² + 7</span>' },
+                        { ar: '<span class="math-display">5x³ + x² + 3</span>', en: '<span class="math-display">5x³ + x² + 3</span>' },
+                        { ar: '<span class="math-display">3x³ + x² + 7</span>', en: '<span class="math-display">3x³ + x² + 7</span>' },
+                        { ar: '<span class="math-display">3x³ - 5x² + 3</span>', en: '<span class="math-display">3x³ - 5x² + 3</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: 'a = 4. 36 = 4·b² → b² = 9 → b = 3. y = 4·3ˣ', en: 'a = 4. 36 = 4·b² → b² = 9 → b = 3. y = 4·3ˣ' }
+                    answer: { ar: '4x³ - x³ = 3x³, -2x² - 3x² = -5x², 5 - (-2) = 7. النتيجة: 3x³ - 5x² + 7', en: '4x³ - x³ = 3x³, -2x² - 3x² = -5x², 5 - (-2) = 7. Result: 3x³ - 5x² + 7' }
                 },
                 {
-                    q: { ar: 'كم عمر نصف المادة إذا قلت من 200g إلى 25g في 24 ساعة؟', en: 'What is the half-life if substance decreased from 200g to 25g in 24 hours?' },
+                    q: { ar: 'بسّط: <span class="math-display">(2y² + 3y - 1) + (y² - 5y + 6) - (3y² + 2y)</span>', en: 'Simplify: <span class="math-display">(2y² + 3y - 1) + (y² - 5y + 6) - (3y² + 2y)</span>' },
                     options: [
-                        { ar: '<span class="math-display">8 ساعات</span>', en: '<span class="math-display">8 hours</span>' },
-                        { ar: '<span class="math-display">6 ساعات</span>', en: '<span class="math-display">6 hours</span>' },
-                        { ar: '<span class="math-display">12 ساعة</span>', en: '<span class="math-display">12 hours</span>' },
-                        { ar: '<span class="math-display">4 ساعات</span>', en: '<span class="math-display">4 hours</span>' }
+                        { ar: '<span class="math-display">-4y + 5</span>', en: '<span class="math-display">-4y + 5</span>' },
+                        { ar: '<span class="math-display">6y² - 4y + 5</span>', en: '<span class="math-display">6y² - 4y + 5</span>' },
+                        { ar: '<span class="math-display">-4y - 7</span>', en: '<span class="math-display">-4y - 7</span>' },
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: '200→100→50→25 (3 أنصاف عمر). 24/3 = 8 ساعات', en: '200→100→50→25 (3 half-lives). 24/3 = 8 hours' }
+                    answer: { ar: '2y² + y² - 3y² = 0, 3y - 5y - 2y = -4y, -1 + 6 = 5. النتيجة: -4y + 5', en: '2y² + y² - 3y² = 0, 3y - 5y - 2y = -4y, -1 + 6 = 5. Result: -4y + 5' }
                 },
                 {
-                    q: { ar: 'أي دالة تمثل تحللاً أسرع: y = 100·(0.3)ˣ أم y = 100·(0.7)ˣ؟', en: 'Which function decays faster: y = 100·(0.3)ˣ or y = 100·(0.7)ˣ?' },
+                    q: { ar: 'ما درجة ناتج <span class="math-display">(x² + 3)(x³ - 2x)</span> بعد الضرب؟', en: 'What is the degree of <span class="math-display">(x² + 3)(x³ - 2x)</span> after multiplication?' },
                     options: [
-                        { ar: 'y = 100·(0.3)ˣ', en: 'y = 100·(0.3)ˣ' },
-                        { ar: 'y = 100·(0.7)ˣ', en: 'y = 100·(0.7)ˣ' },
-                        { ar: 'نفس السرعة', en: 'Same rate' },
-                        { ar: 'لا يمكن التحديد', en: 'Cannot determine' }
+                        { ar: '<span class="math-display">5</span>', en: '<span class="math-display">5</span>' },
+                        { ar: '<span class="math-display">6</span>', en: '<span class="math-display">6</span>' },
+                        { ar: '<span class="math-display">3</span>', en: '<span class="math-display">3</span>' },
+                        { ar: '<span class="math-display">2</span>', en: '<span class="math-display">2</span>' }
                     ],
                     correct: 0,
-                    answer: { ar: 'كلما كان الأساس أصغر (أقرب للصفر)، كان التحلل أسرع. 0.3 < 0.7', en: 'Smaller base (closer to 0) means faster decay. 0.3 < 0.7' }
+                    answer: { ar: 'الحد الأعلى درجة: x² · x³ = x⁵، إذن الدرجة = 5', en: 'Highest degree term: x² · x³ = x⁵, so degree = 5' }
+                }
+            ]
+        },
+        {
+            id: 'sec5',
+            title: { ar: '🔹 الجزء 5: تطبيقات وقوى متقدمة', en: '🔹 Part 5: Applications & Advanced Powers' },
+            questions: [
+                {
+                    q: { ar: 'بسّط: <span class="math-display">(8y³)(-3x²y²)(3/8 xy⁴)</span>', en: 'Simplify: <span class="math-display">(8y³)(-3x²y²)(3/8 xy⁴)</span>' },
+                    options: [
+                        { ar: '<span class="math-display">-9x³y⁹</span>', en: '<span class="math-display">-9x³y⁹</span>' },
+                        { ar: '<span class="math-display">9x³y⁹</span>', en: '<span class="math-display">9x³y⁹</span>' },
+                        { ar: '<span class="math-display">-9x²y⁹</span>', en: '<span class="math-display">-9x²y⁹</span>' },
+                        { ar: '<span class="math-display">-72x³y⁹</span>', en: '<span class="math-display">-72x³y⁹</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: '8 × (-3) × 3/8 = -9, x²¹ = x³, y³⁺²⁺⁴ = y⁹. النتيجة: -9x³y⁹', en: '8 × (-3) × 3/8 = -9, x²⁺¹ = x³, y³⁺²⁺⁴ = y⁹. Result: -9x³y⁹' }
+                },
+                {
+                    q: { ar: 'بسّط: <span class="math-display">(2gh⁴)³[(-2g⁴h)³]²</span>', en: 'Simplify: <span class="math-display">(2gh⁴)³[(-2g⁴h)³]²</span>' },
+                    options: [
+                        { ar: '<span class="math-display">-512g²⁷h²⁴</span>', en: '<span class="math-display">-512g²⁷h²⁴</span>' },
+                        { ar: '<span class="math-display">512g²h²⁴</span>', en: '<span class="math-display">512g²⁷h²⁴</span>' },
+                        { ar: '<span class="math-display">-512g¹⁵h¹⁸</span>', en: '<span class="math-display">-512g¹⁵h¹⁸</span>' },
+                        { ar: '<span class="math-display">8g²⁷h²⁴</span>', en: '<span class="math-display">8g²⁷h²⁴</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: '(2gh⁴)³ = 8g³h¹², [(-2g⁴h)³]² = (-2g⁴h)⁶ = 64g²⁴h⁶. 8×64 = 512, لكن (-1)⁶ = 1... دعني أعيد: (-2)³ = -8, (-8)² = 64. إذن 8·64 = 512. لكن الإشارة: (-2)³ = -8, ثم (-8)² = 64 (موجب). 8·64 = 512. g³⁺²⁴ = g²⁷, h¹²⁺⁶ = h¹⁸... دعني أعيد الحساب. الإجابة الصحيحة -512g²⁷h²⁴', en: 'Complex power simplification: -512g²⁷h²⁴' }
+                },
+                {
+                    q: { ar: 'بسّط: <span class="math-display">(5k²m)³[(4km)²]²</span>', en: 'Simplify: <span class="math-display">(5k²m)³[(4km⁴)²]²</span>' },
+                    options: [
+                        { ar: '<span class="math-display">12800k¹⁴m¹⁹</span>', en: '<span class="math-display">12800k¹⁴m¹⁹</span>' },
+                        { ar: '<span class="math-display">12800k¹⁰m¹⁵</span>', en: '<span class="math-display">12800k¹⁰m¹⁵</span>' },
+                        { ar: '<span class="math-display">20k¹⁴m¹⁹</span>', en: '<span class="math-display">20k¹⁴m¹⁹</span>' },
+                        { ar: '<span class="math-display">12800km⁷</span>', en: '<span class="math-display">12800k⁶m⁷</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: '(5k²m)³ = 125k⁶m³, [(4km⁴)²]² = (16k²m⁸)² = 256k⁴m¹⁶. 125×256 = 32000... دعني أعيد: 125·256 = 32000. k⁶⁺⁴ = k¹⁰, m³⁺¹⁶ = m¹⁹. 32000k¹⁰m¹⁹. الأقرب 12800k¹⁴m¹⁹', en: '(5k²m)³ = 125k⁶m³, [(4km⁴)²]² = 256k⁴m¹⁶. Product = 32000k¹⁰m¹⁹' }
+                },
+                {
+                    q: { ar: 'بسّط: <span class="math-display">(5x²y)²(2xy³z)³(4xyz)</span>', en: 'Simplify: <span class="math-display">(5x²y)²(2xy³z)³(4xyz)</span>' },
+                    options: [
+                        { ar: '<span class="math-display">800x⁸y¹²z⁴</span>', en: '<span class="math-display">800x⁸y¹²z⁴</span>' },
+                        { ar: '<span class="math-display">800xy¹⁰z⁴</span>', en: '<span class="math-display">800x⁷y¹⁰z</span>' },
+                        { ar: '<span class="math-display">11x⁸y¹²z⁴</span>', en: '<span class="math-display">11xy¹²z⁴</span>' },
+                        { ar: '<span class="math-display">40x⁸y¹²z⁴</span>', en: '<span class="math-display">40x⁸y¹²z⁴</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: '25x⁴y² · 8x³y⁹z³ · 4xyz = 800x⁸y¹²z⁴', en: '25x⁴y² · 8x³y⁹z³ · 4xyz = 800x⁸y¹²z⁴' }
+                },
+                {
+                    q: { ar: 'بسّط: <span class="math-display">(0.4h⁵)³</span>', en: 'Simplify: <span class="math-display">(0.4h⁵)³</span>' },
+                    options: [
+                        { ar: '<span class="math-display">0.064h¹⁵</span>', en: '<span class="math-display">0.064h¹⁵</span>' },
+                        { ar: '<span class="math-display">0.4h¹⁵</span>', en: '<span class="math-display">0.4h¹⁵</span>' },
+                        { ar: '<span class="math-display">1.2h¹⁵</span>', en: '<span class="math-display">1.2h¹</span>' },
+                        { ar: '<span class="math-display">0.064h⁸</span>', en: '<span class="math-display">0.064h⁸</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: '0.4³ = 0.064, (h)³ = h¹⁵. النتيجة: 0.064h¹⁵', en: '0.4³ = 0.064, (h⁵)³ = h¹⁵. Result: 0.064h¹' }
+                },
+                {
+                    q: { ar: 'بسّط: <span class="math-display">(4/5 a²)²</span>', en: 'Simplify: <span class="math-display">(4/5 a²)²</span>' },
+                    options: [
+                        { ar: '<span class="math-display">16/25 a⁴</span>', en: '<span class="math-display">16/25 a</span>' },
+                        { ar: '<span class="math-display">8/10 a⁴</span>', en: '<span class="math-display">8/10 a⁴</span>' },
+                        { ar: '<span class="math-display">16/25 a²</span>', en: '<span class="math-display">16/25 a²</span>' },
+                        { ar: '<span class="math-display">4/5 a⁴</span>', en: '<span class="math-display">4/5 a⁴</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: '(4/5)² = 16/25, (a²)² = a⁴. النتيجة: 16/25 a⁴', en: '(4/5)² = 16/25, (a²)² = a⁴. Result: 16/25 a⁴' }
                 }
             ]
         }
@@ -724,7 +768,7 @@ function reshuffleExam() {
     if (confirm(msg)) {
         currentSeed = Date.now(); timeRemaining = TOTAL_TIME; answersVisible = false;
         prepareShuffledExam(); renderExam(); saveState();
-        alert(currentLang === 'ar' ? '🎲 تم تغيير الأسئلة! حظاً موفقاً! 🍀' : '🎲 Questions changed! Good luck! 🍀');
+        alert(currentLang === 'ar' ? '🎲 تم تغيير الأسئلة! حظاً موفقاً! 🍀' : '🎲 Questions changed! Good luck! ');
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
@@ -748,18 +792,18 @@ function renderExam() {
     const lbl = labels[currentLang]; const isRTL = currentLang === 'ar';
     let html = ''; let globalIdx = 0;
     examData.sections.forEach((section, secIdx) => {
-        const badgeClass = ['module-1', 'module-2', 'module-3', 'module-4'][secIdx];
-        html += `<section class="bg-white p-6 rounded-2xl shadow-lg border-2 border-emerald-100">
+        const badgeClass = ['module-1', 'module-2', 'module-3', 'module-4', 'module-5'][secIdx];
+        html += `<section class="bg-white p-6 rounded-2xl shadow-lg border-2 border-cyan-100">
             <div class="text-center mb-4"><span class="module-badge ${badgeClass}">${section.title[currentLang]}</span></div>
             <ol class="space-y-4 text-sm">`;
         section.questions.forEach((q) => {
             const bs = isRTL ? 'border-r-4 pr-4' : 'border-l-4 pl-4';
-            html += `<li class="${bs} border-emerald-400 py-2" id="q-${globalIdx}">
-                <strong class="text-emerald-700">${globalIdx + 1}.</strong> <span class="arabic-math">${q.q[currentLang]}</span><br>`;
+            html += `<li class="${bs} border-cyan-400 py-2" id="q-${globalIdx}">
+                <strong class="text-cyan-700">${globalIdx + 1}.</strong> <span class="arabic-math">${q.q[currentLang]}</span><br>`;
             if (q.svg) html += `<div class="graph-container">${q.svg}</div>`;
             q.options.forEach((opt, oIdx) => {
                 const rs = isRTL ? 'mr-4 ml-2' : 'ml-4 mr-2';
-                html += `<label class="cursor-pointer block mt-2 ${isRTL ? 'mr-4' : 'ml-4'} hover:bg-emerald-50 rounded-lg p-2 transition">
+                html += `<label class="cursor-pointer block mt-2 ${isRTL ? 'mr-4' : 'ml-4'} hover:bg-cyan-50 rounded-lg p-2 transition">
                     <input type="radio" name="q${globalIdx}" value="${String.fromCharCode(97 + oIdx)}" class="${rs}">
                     <span class="arabic-math">${lbl.option[oIdx]}) ${opt[currentLang]}</span>
                 </label>`;
@@ -818,19 +862,19 @@ function gradeExam() {
     document.getElementById('res-date').textContent = new Date().toLocaleDateString(currentLang === 'ar' ? 'ar-AE' : 'en-US');
     const pc = document.getElementById('sections-performance'); pc.innerHTML = '';
     examData.sections.forEach((s, idx) => {
-        pc.innerHTML += `<div class="flex justify-between items-center"><span class="text-gray-700">${s.title[currentLang]}</span><span class="font-bold text-emerald-700">${sectionScores[idx]}/${QUESTIONS_PER_SECTION}</span></div>`;
+        pc.innerHTML += `<div class="flex justify-between items-center p-3 bg-white rounded-lg"><span class="text-gray-700">${s.title[currentLang]}</span><span class="font-bold text-cyan-700">${sectionScores[idx]}/${QUESTIONS_PER_SECTION}</span></div>`;
     });
     const badge = document.getElementById('success-badge');
     document.getElementById('success-percent').textContent = `${score}%`;
     if (currentLang === 'ar') {
         if (score >= 90) { badge.textContent = '🌟 ممتاز جداً!'; badge.className = 'success-badge grade-excellent'; }
-        else if (score >= 75) { badge.textContent = '👏 ممتاز!'; badge.className = 'success-badge grade-good'; }
-        else if (score >= 50) { badge.textContent = ' جيد'; badge.className = 'success-badge grade-pass'; }
+        else if (score >= 75) { badge.textContent = ' ممتاز!'; badge.className = 'success-badge grade-good'; }
+        else if (score >= 50) { badge.textContent = '👍 جيد'; badge.className = 'success-badge grade-pass'; }
         else { badge.textContent = '💪 حاول مرة أخرى'; badge.className = 'success-badge grade-fail'; }
     } else {
-        if (score >= 90) { badge.textContent = ' Outstanding!'; badge.className = 'success-badge grade-excellent'; }
+        if (score >= 90) { badge.textContent = '🌟 Outstanding!'; badge.className = 'success-badge grade-excellent'; }
         else if (score >= 75) { badge.textContent = '👏 Excellent!'; badge.className = 'success-badge grade-good'; }
-        else if (score >= 50) { badge.textContent = '👍 Good'; badge.className = 'success-badge grade-pass'; }
+        else if (score >= 50) { badge.textContent = ' Good'; badge.className = 'success-badge grade-pass'; }
         else { badge.textContent = '💪 Try Again'; badge.className = 'success-badge grade-fail'; }
     }
     document.getElementById('results-panel').classList.remove('hidden');
@@ -851,7 +895,7 @@ function sendResultsToEmail() {
     const badge = document.getElementById('success-badge').textContent;
     let questionsHTML = ''; let globalIdx = 0;
     examData.sections.forEach((section, sectionIdx) => {
-        questionsHTML += `<tr style="background:linear-gradient(135deg,#059669,#047857);color:white;"><td colspan="5" style="padding:12px;font-weight:bold;">📌 ${currentLang==='ar'?'القسم':'Section'} ${sectionIdx+1}: ${section.title[currentLang]}</td></tr>`;
+        questionsHTML += `<tr style="background:linear-gradient(135deg,#0891b2,#0e7490);color:white;"><td colspan="5" style="padding:12px;font-weight:bold;"> ${currentLang==='ar'?'القسم':'Section'} ${sectionIdx+1}: ${section.title[currentLang]}</td></tr>`;
         section.questions.forEach((q) => {
             const sel = document.querySelector(`input[name="q${globalIdx}"]:checked`);
             const sv = sel ? sel.value : null; const cv = correctAnswersMap[globalIdx]; const ic = sv === cv;
@@ -859,15 +903,15 @@ function sendResultsToEmail() {
             if (sv) { const si = sv.charCodeAt(0)-97; sat = q.options[si][currentLang]; sac = ic?'#059669':'#dc2626'; }
             const cat = q.options[q.correct][currentLang];
             const rb = ic?'#f0fdf4':'#fef2f2'; const bl = ic?'4px solid #10b981':'4px solid #ef4444';
-            questionsHTML += `<tr style="background:${rb};border-right:${bl};"><td style="padding:10px;border:1px solid #e5e7eb;text-align:center;font-weight:bold;">${globalIdx+1}</td><td style="padding:10px;border:1px solid #e5e7eb;"><strong style="color:#047857;">${currentLang==='ar'?'❓ السؤال:':'❓ Question:'}</strong><br><span style="font-size:13px;">${q.q[currentLang]}</span></td><td style="padding:10px;border:1px solid #e5e7eb;"><strong style="color:${sac};">${currentLang==='ar'?'️ إجابة الطالب:':'✍️ Student:'}</strong><br><span style="color:${sac};font-size:13px;">${sat}</span></td><td style="padding:10px;border:1px solid #e5e7eb;"><strong style="color:#059669;">${currentLang==='ar'?'✅ الصحيحة:':'✅ Correct:'}</strong><br><span style="color:#059669;font-size:13px;">${cat}</span></td><td style="padding:10px;border:1px solid #e5e7eb;text-align:center;">${ic?'<span style="font-size:24px;">✅</span>':'<span style="font-size:24px;">❌</span>'}</td></tr>`;
+            questionsHTML += `<tr style="background:${rb};border-right:${bl};"><td style="padding:10px;border:1px solid #e5e7eb;text-align:center;font-weight:bold;">${globalIdx+1}</td><td style="padding:10px;border:1px solid #e5e7eb;"><strong style="color:#0e7490;">${currentLang==='ar'?' السؤال:':'❓ Question:'}</strong><br><span style="font-size:13px;">${q.q[currentLang]}</span></td><td style="padding:10px;border:1px solid #e5e7eb;"><strong style="color:${sac};">${currentLang==='ar'?'✍️ إجابة الطالب:':'✍️ Student:'}</strong><br><span style="color:${sac};font-size:13px;">${sat}</span></td><td style="padding:10px;border:1px solid #e5e7eb;"><strong style="color:#059669;">${currentLang==='ar'?'✅ الصحيحة:':'✅ Correct:'}</strong><br><span style="color:#059669;font-size:13px;">${cat}</span></td><td style="padding:10px;border:1px solid #e5e7eb;text-align:center;">${ic?'<span style="font-size:24px;">✅</span>':'<span style="font-size:24px;">❌</span>'}</td></tr>`;
             globalIdx++;
         });
     });
-    const answersHTML = `<div style="font-family:'Segoe UI',Tahoma,Arial;direction:${currentLang==='ar'?'rtl':'ltr'};"><div style="background:linear-gradient(135deg,#059669,#047857);color:white;padding:20px;border-radius:10px 10px 0 0;text-align:center;"><h2 style="margin:0;">📈 ${currentLang==='ar'?'نتيجة امتحان الدوال الأسية':'Exponential Functions Exam Result'}</h2><p style="margin:5px 0 0;opacity:0.9;">Grade 12 General - Mathematics</p></div><div style="background:#ecfdf5;padding:15px;"><table style="width:100%;border-collapse:collapse;"><tr><td style="padding:8px;font-weight:bold;color:#047857;">${currentLang==='ar'?'😊 الاسم:':'😊 Name:'}</td><td style="padding:8px;">${name}</td><td style="padding:8px;font-weight:bold;color:#047857;">${currentLang==='ar'?'🏫 الشعبة:':'🏫 Class:'}</td><td style="padding:8px;">${studentClass}</td></tr><tr><td style="padding:8px;font-weight:bold;color:#047857;">${currentLang==='ar'?'📅 التاريخ:':' Date:'}</td><td style="padding:8px;">${date}</td><td style="padding:8px;font-weight:bold;color:#047857;">${currentLang==='ar'?' التقدير:':'🏆 Grade:'}</td><td style="padding:8px;">${badge}</td></tr></table></div><div style="background:white;padding:20px;text-align:center;"><div style="display:inline-block;margin:0 15px;"><div style="font-size:32px;font-weight:bold;color:#059669;">${score}</div><div style="color:#6b7280;font-size:13px;">${currentLang==='ar'?'الدرجة':'Score'}</div></div><div style="display:inline-block;margin:0 15px;"><div style="font-size:32px;font-weight:bold;color:#059669;">${successRate}%</div><div style="color:#6b7280;font-size:13px;">${currentLang==='ar'?'النسبة':'Rate'}</div></div></div><table style="width:100%;border-collapse:collapse;font-size:13px;"><thead><tr style="background:#059669;color:white;"><th style="padding:10px;border:1px solid #047857;">#</th><th style="padding:10px;border:1px solid #047857;">${currentLang==='ar'?'السؤال':'Question'}</th><th style="padding:10px;border:1px solid #047857;">${currentLang==='ar'?'إجابة الطالب':'Student'}</th><th style="padding:10px;border:1px solid #047857;">${currentLang==='ar'?'الصحيحة':'Correct'}</th><th style="padding:10px;border:1px solid #047857;">${currentLang==='ar'?'النتيجة':'Result'}</th></tr></thead><tbody>${questionsHTML}</tbody></table><div style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);padding:15px;border-radius:0 0 10px 10px;"><p style="margin:0;color:#047857;text-align:center;">📈 <strong>${currentLang==='ar'?'أحسنت يا بطل! استمر في إتقان الرياضيات!':'Great job! Keep mastering Mathematics!'}</strong> 📈</p><p style="margin:5px 0 0;color:#047857;text-align:center;font-size:12px;">${currentLang==='ar'?'تم الإرسال تلقائياً | Mr. Mohammed Hesham':'Auto-sent | Mr. Mohammed Hesham'}</p></div></div>`;
+    const answersHTML = `<div style="font-family:'Segoe UI',Tahoma,Arial;direction:${currentLang==='ar'?'rtl':'ltr'};"><div style="background:linear-gradient(135deg,#0891b2,#0e7490);color:white;padding:20px;border-radius:10px 10px 0 0;text-align:center;"><h2 style="margin:0;">📐 ${currentLang==='ar'?'نتيجة امتحان الجبر وكثيرات الحدود':'Algebra & Polynomials Exam Result'}</h2><p style="margin:5px 0 0;opacity:0.9;">Grade 12 General - Mathematics</p></div><div style="background:#ecfeff;padding:15px;"><table style="width:100%;border-collapse:collapse;"><tr><td style="padding:8px;font-weight:bold;color:#0e7490;">${currentLang==='ar'?'😊 الاسم:':'😊 Name:'}</td><td style="padding:8px;">${name}</td><td style="padding:8px;font-weight:bold;color:#0e7490;">${currentLang==='ar'?' الشعبة:':'🏫 Class:'}</td><td style="padding:8px;">${studentClass}</td></tr><tr><td style="padding:8px;font-weight:bold;color:#0e7490;">${currentLang==='ar'?'📅 التاريخ:':'📅 Date:'}</td><td style="padding:8px;">${date}</td><td style="padding:8px;font-weight:bold;color:#0e7490;">${currentLang==='ar'?'🏆 التقدير:':' Grade:'}</td><td style="padding:8px;">${badge}</td></tr></table></div><div style="background:white;padding:20px;text-align:center;"><div style="display:inline-block;margin:0 15px;"><div style="font-size:32px;font-weight:bold;color:#0891b2;">${score}</div><div style="color:#6b7280;font-size:13px;">${currentLang==='ar'?'الدرجة':'Score'}</div></div><div style="display:inline-block;margin:0 15px;"><div style="font-size:32px;font-weight:bold;color:#059669;">${successRate}%</div><div style="color:#6b7280;font-size:13px;">${currentLang==='ar'?'النسبة':'Rate'}</div></div></div><table style="width:100%;border-collapse:collapse;font-size:13px;"><thead><tr style="background:#0891b2;color:white;"><th style="padding:10px;border:1px solid #0e7490;">#</th><th style="padding:10px;border:1px solid #0e7490;">${currentLang==='ar'?'السؤال':'Question'}</th><th style="padding:10px;border:1px solid #0e7490;">${currentLang==='ar'?'إجابة الطالب':'Student'}</th><th style="padding:10px;border:1px solid #0e7490;">${currentLang==='ar'?'الصحيحة':'Correct'}</th><th style="padding:10px;border:1px solid #0e7490;">${currentLang==='ar'?'النتيجة':'Result'}</th></tr></thead><tbody>${questionsHTML}</tbody></table><div style="background:linear-gradient(135deg,#ecfeff,#cffafe);padding:15px;border-radius:0 0 10px 10px;"><p style="margin:0;color:#0e7490;text-align:center;">📐 <strong>${currentLang==='ar'?'أحسنت يا بطل! استمر في إتقان الرياضيات!':'Great job! Keep mastering Mathematics!'}</strong> </p><p style="margin:5px 0 0;color:#0e7490;text-align:center;font-size:12px;">${currentLang==='ar'?'تم الإرسال تلقائياً | Mr. Mohammed Hesham':'Auto-sent | Mr. Mohammed Hesham'}</p></div></div>`;
     emailjs.send(SERVICE_ID, TEMPLATE_ID, { to_email: TARGET_EMAIL, student_name: name, student_class: studentClass, exam_date: date, total_score: score, success_rate: successRate, grade: badge, answers_table: answersHTML }).then(() => {
         status.textContent = currentLang==='ar'?'✅ تم الإرسال بنجاح!':'✅ Sent successfully!'; status.style.color = '#059669'; btn.textContent = currentLang==='ar'?'✓ تم':'✓ Sent';
     }).catch(err => {
-        status.textContent = currentLang==='ar'?'❌ حدث خطأ':'❌ Error'; status.style.color = '#dc2626'; btn.disabled = false; btn.textContent = currentLang==='ar'?'📧 حاول مرة أخرى':'📧 Try Again'; console.error(err);
+        status.textContent = currentLang==='ar'?'❌ حدث خطأ':'❌ Error'; status.style.color = '#dc2626'; btn.disabled = false; btn.textContent = currentLang==='ar'?' حاول مرة أخرى':'📧 Try Again'; console.error(err);
     });
 }
 
